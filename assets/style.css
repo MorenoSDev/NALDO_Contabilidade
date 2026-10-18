@@ -713,6 +713,80 @@ address {
     height: 32px;
 }
 
+/* Modal do WhatsApp */
+
+.modal {
+    margin: auto;
+    border: none;
+    border-radius: var(--raio);
+    padding: 0;
+    width: min(440px, 100% - 32px);
+    box-shadow: 0 24px 60px rgba(0, 0, 0, .3);
+}
+
+.modal::backdrop {
+    background: rgba(2, 52, 64, .6);
+    backdrop-filter: blur(3px);
+}
+
+.modal[open] {
+    animation: modal-entra .25s ease;
+}
+
+.modal-box {
+    position: relative;
+    display: grid;
+    gap: 14px;
+    padding: 28px;
+}
+
+.modal-fechar {
+    position: absolute;
+    top: 10px;
+    right: 14px;
+    border: none;
+    background: none;
+    font-size: 1.8rem;
+    line-height: 1;
+    color: var(--texto-suave);
+    cursor: pointer;
+}
+
+.modal-topo {
+    display: flex;
+    gap: 14px;
+    align-items: center;
+    margin-bottom: 4px;
+    padding-right: 24px;
+}
+
+.modal-topo > svg {
+    flex: none;
+    width: 48px;
+    height: 48px;
+    padding: 10px;
+    border-radius: 50%;
+    background: var(--whats);
+    color: var(--cor5);
+}
+
+.modal-topo h2 {
+    font-size: 1.3rem;
+    margin: 0;
+}
+
+.modal-topo p {
+    font-size: .9rem;
+    color: var(--texto-suave);
+}
+
+@keyframes modal-entra {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+}
+
 /* Animação ao rolar */
 
 .reveal {

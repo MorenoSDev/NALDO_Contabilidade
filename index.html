@@ -67,7 +67,7 @@
                     <li><a href="#como-funciona">Como funciona</a></li>
                     <li><a href="#sobre">Sobre</a></li>
                     <li><a href="#faq">Dúvidas</a></li>
-                    <li><a href="#contato" class="btn btn-primary btn-sm">Fale com um contador</a></li>
+                    <li><a href="https://wa.me/5511985368975" class="btn btn-primary btn-sm" data-whats>Fale com um contador</a></li>
                 </ul>
             </nav>
         </div>
@@ -82,7 +82,7 @@
                 <p class="hero-text">Cuidamos da contabilidade, dos impostos e da folha da sua empresa para que você
                     foque no que importa: crescer. Atendimento próximo, com contador de verdade.</p>
                 <div class="hero-ctas">
-                    <a href="https://wa.me/5511985368975?text=Ol%C3%A1!%20Gostaria%20de%20falar%20com%20um%20contador."
+                    <a data-whats href="https://wa.me/5511985368975?text=Ol%C3%A1!%20Gostaria%20de%20falar%20com%20um%20contador."
                         class="btn btn-whats" target="_blank" rel="noopener">
                         <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><use href="#i-whats"/></svg>
                         Falar no WhatsApp
@@ -311,7 +311,7 @@
                     <ul class="contact-list">
                         <li>
                             <svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-whats"/></svg>
-                            <a href="https://wa.me/5511985368975" target="_blank" rel="noopener">(11) 98536-8975</a>
+                            <a data-whats href="https://wa.me/5511985368975" target="_blank" rel="noopener">(11) 98536-8975</a>
                         </li>
                         <li>
                             <svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-mail"/></svg>
@@ -418,8 +418,51 @@
         </div>
     </footer>
 
+    <!-- Modal: formulário rápido antes de abrir o WhatsApp -->
+    <dialog class="modal" id="modal-whats" aria-labelledby="modal-titulo">
+        <form class="modal-box" id="form-whats" method="dialog">
+            <button type="button" class="modal-fechar" data-fechar aria-label="Fechar">&times;</button>
+            <div class="modal-topo">
+                <svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-whats"/></svg>
+                <div>
+                    <h2 id="modal-titulo">Fale com um contador</h2>
+                    <p>Preencha rapidinho e continue a conversa no WhatsApp.</p>
+                </div>
+            </div>
+            <div class="field">
+                <label for="w-nome">Nome</label>
+                <input type="text" id="w-nome" name="name" placeholder="Seu nome" autocomplete="name" required>
+            </div>
+            <div class="field">
+                <label for="w-telefone">Telefone / WhatsApp</label>
+                <input type="tel" id="w-telefone" name="phone" placeholder="(11) 90000-0000" autocomplete="tel"
+                    inputmode="tel" required>
+            </div>
+            <div class="field">
+                <label for="w-email">E-mail (opcional)</label>
+                <input type="email" id="w-email" name="email" placeholder="voce@empresa.com.br" autocomplete="email">
+            </div>
+            <div class="field">
+                <label for="w-servico">Assunto</label>
+                <select id="w-servico" name="servico">
+                    <option>Abrir uma empresa</option>
+                    <option>Trocar de contador</option>
+                    <option>MEI / Desenquadramento para ME</option>
+                    <option>Planejamento tributário</option>
+                    <option>Folha de pagamento</option>
+                    <option>Outro assunto</option>
+                </select>
+            </div>
+            <input type="text" name="honeypot" class="hidden" tabindex="-1" autocomplete="off">
+            <button type="submit" class="btn btn-whats btn-block">
+                <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><use href="#i-whats"/></svg>
+                Continuar no WhatsApp
+            </button>
+        </form>
+    </dialog>
+
     <!-- Botão flutuante do WhatsApp -->
-    <a class="whats-float" href="https://wa.me/5511985368975?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20um%20contador."
+    <a class="whats-float" data-whats href="https://wa.me/5511985368975?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20um%20contador."
         target="_blank" rel="noopener" aria-label="Conversar no WhatsApp">
         <svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-whats"/></svg>
     </a>
