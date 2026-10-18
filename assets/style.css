@@ -206,7 +206,7 @@ a {
     padding: calc(var(--header-h) + 40px) 0 60px;
     background:
         linear-gradient(100deg, rgba(2, 52, 64, .95) 0%, rgba(8, 38, 56, .8) 55%, rgba(8, 38, 56, .35) 100%),
-        url(img/fundo01.png) center / cover no-repeat;
+        url(img/fundo01.webp) center / cover no-repeat;
     color: var(--cor5);
 }
 
@@ -1035,6 +1035,133 @@ address {
     }
 }
 
+/* Números */
+
+.stats {
+    position: relative;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 16px;
+    margin-top: 72px;
+    padding: 36px 24px;
+    border-radius: var(--raio);
+    background: linear-gradient(135deg, var(--cor3), var(--escuro));
+    color: var(--cor5);
+    text-align: center;
+}
+
+.stat strong {
+    display: block;
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    line-height: 1.1;
+    color: var(--cor1);
+}
+
+.stat span {
+    font-size: .9rem;
+    color: var(--cor4);
+}
+
+.stats .demo-tag {
+    position: absolute;
+    top: -11px;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0;
+}
+
+/* Equipe */
+
+.team {
+    margin-top: 96px;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.member {
+    text-align: center;
+    padding: 32px 24px;
+    border: 1px solid var(--borda);
+    border-radius: var(--raio);
+}
+
+.avatar {
+    width: 96px;
+    height: 96px;
+    margin: 0 auto 16px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--cor0), var(--cor2));
+    color: var(--cor5);
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+.member h3 {
+    color: var(--cor3);
+    font-size: 1.1rem;
+}
+
+.cargo {
+    display: block;
+    color: var(--cor2);
+    font-weight: 500;
+}
+
+.member small {
+    color: var(--texto-suave);
+}
+
+/* Depoimentos */
+
+.testimonial {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.estrelas {
+    color: #f5b301;
+    letter-spacing: 2px;
+}
+
+.testimonial p {
+    flex: 1;
+    font-size: 1rem;
+    color: var(--texto);
+}
+
+.testimonial cite {
+    font-style: normal;
+    font-size: .85rem;
+    color: var(--texto-suave);
+}
+
+.testimonial cite strong {
+    display: block;
+    color: var(--cor3);
+    font-size: .95rem;
+}
+
+/* Marcação de conteúdo de demonstração (remover junto com os dados ilustrativos) */
+
+.demo-tag {
+    display: inline-block;
+    margin-top: 8px;
+    padding: 3px 12px;
+    border-radius: 999px;
+    background: #fff4d6;
+    color: #8a6100;
+    font-size: .75rem;
+    font-weight: 600;
+    letter-spacing: .03em;
+}
+
 /* Animação ao rolar */
 
 .reveal {
@@ -1067,7 +1194,8 @@ address {
     }
 
     .steps,
-    .trust-grid {
+    .trust-grid,
+    .stats {
         grid-template-columns: repeat(2, 1fr);
     }
 
@@ -1171,7 +1299,7 @@ address {
         padding-bottom: 96px;
         background:
             linear-gradient(180deg, rgba(2, 52, 64, .92), rgba(8, 38, 56, .85)),
-            url(img/fundo02.png) center / cover no-repeat;
+            url(img/fundo02.webp) center / cover no-repeat;
     }
 
     .hero-ctas .btn {
@@ -1185,6 +1313,7 @@ address {
     .cards,
     .steps,
     .values,
+    .team-grid,
     .about,
     .faq,
     .contact,
@@ -1208,4 +1337,36 @@ address {
     .footer-grid {
         grid-template-columns: 1fr;
     }
+}
+
+/* Páginas de texto (política de privacidade) */
+
+.texto-legal {
+    max-width: 760px;
+}
+
+.texto-legal h1 {
+    font-size: clamp(1.8rem, 4vw, 2.4rem);
+    color: var(--cor3);
+    margin: 16px 0 24px;
+}
+
+.texto-legal h2 {
+    font-size: 1.25rem;
+    margin: 32px 0 8px;
+}
+
+.texto-legal p {
+    color: var(--texto-suave);
+    margin-bottom: 12px;
+}
+
+.voltar {
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.atualizado {
+    margin-top: 40px;
+    font-size: .85rem;
 }

@@ -39,7 +39,7 @@ const observadorMenu = new IntersectionObserver((entradas) => {
 secoes.forEach((secao) => observadorMenu.observe(secao));
 
 // Elementos aparecem suavemente ao rolar
-const animados = document.querySelectorAll('.card, .step, .value, .about-img, .about-text, details, .form');
+const animados = document.querySelectorAll('.card, .step, .value, .member, .stats, .about-img, .about-text, details, .form');
 const observadorReveal = new IntersectionObserver((entradas) => {
     entradas.forEach((entrada) => {
         if (entrada.isIntersecting) {
@@ -55,7 +55,7 @@ animados.forEach((el) => {
 });
 
 // Formulário rápido do WhatsApp: avisa por e-mail e abre a conversa
-const WHATS_NUMERO = '5511985368975';
+const WHATS_NUMERO = '5511985368674';
 const STATICFORMS_KEY = 'b300ce7d-565b-430d-b09f-6f9b3aa66312';
 
 const modal = document.getElementById('modal-whats');
@@ -127,6 +127,27 @@ formWhats.addEventListener('submit', (evento) => {
     modal.close();
     formWhats.reset();
 });
+
+// Números sobem de 0 até o valor quando aparecem na tela
+const contadores = document.querySelectorAll('[data-contar]');
+const observadorNumeros = new IntersectionObserver((entradas) => {
+    entradas.forEach((entrada) => {
+        if (!entrada.isIntersecting) return;
+        observadorNumeros.unobserve(entrada.target);
+        const alvo = Number(entrada.target.dataset.contar);
+        const inicio = performance.now();
+        const passo = (agora) => {
+            const progresso = Math.min((agora - inicio) / 1500, 1);
+            entrada.target.textContent = '+' + Math.round(alvo * (1 - (1 - progresso) ** 3));
+            if (progresso < 1) requestAnimationFrame(passo);
+        };
+        requestAnimationFrame(passo);
+    });
+}, { threshold: 0.5 });
+
+if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+    contadores.forEach((el) => observadorNumeros.observe(el));
+}
 
 // Ano atual no rodapé
 document.getElementById('ano').textContent = new Date().getFullYear();

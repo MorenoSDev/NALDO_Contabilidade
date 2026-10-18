@@ -8,18 +8,23 @@
     <meta name="description"
         content="Escritório de contabilidade consultiva em São Paulo. Abertura de empresas, contabilidade, fiscal, folha de pagamento, MEI e planejamento tributário. Fale com um contador pelo WhatsApp.">
     <meta name="theme-color" content="#023440">
+    <link rel="canonical" href="https://gabrielmk301.github.io/NALDO_Contabilidade/">
 
     <!-- Open Graph (pré-visualização ao compartilhar no WhatsApp/redes) -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="NRJ Contabilidade Consultiva">
     <meta property="og:description" content="Transformamos números em oportunidades. Contabilidade consultiva para sua empresa crescer com segurança.">
-    <meta property="og:image" content="assets/img/logo.png">
+    <meta property="og:image" content="https://gabrielmk301.github.io/NALDO_Contabilidade/assets/img/logo.png">
+    <meta property="og:url" content="https://gabrielmk301.github.io/NALDO_Contabilidade/">
     <meta property="og:locale" content="pt_BR">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
     <link rel="stylesheet" href="assets/style.css">
+    <!-- Carrega antes a imagem do topo (versão certa para cada tela) -->
+    <link rel="preload" as="image" href="assets/img/fundo01.webp" media="(min-width: 861px)">
+    <link rel="preload" as="image" href="assets/img/fundo02.webp" media="(max-width: 860px)">
     <link rel="icon" href="assets/img/favicon/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="assets/img/favicon/apple-touch-icon.png">
     <link rel="manifest" href="assets/img/favicon/site.webmanifest">
@@ -30,9 +35,10 @@
         "@context": "https://schema.org",
         "@type": "AccountingService",
         "name": "NRJ Contabilidade Consultiva",
-        "image": "assets/img/logo.png",
-        "telephone": "+55-11-98536-8975",
-        "email": "contato@contato.com.br",
+        "image": "https://gabrielmk301.github.io/NALDO_Contabilidade/assets/img/logo.png",
+        "url": "https://gabrielmk301.github.io/NALDO_Contabilidade/",
+        "telephone": "+55-11-98536-8674",
+        "email": "gabrielmk301@gmail.com",
         "address": {
             "@type": "PostalAddress",
             "streetAddress": "Rua Pereira Estéfano",
@@ -41,6 +47,7 @@
             "postalCode": "04144-070",
             "addressCountry": "BR"
         },
+        "openingHours": "Mo-Fr 08:00-18:00",
         "areaServed": "São Paulo"
     }
     </script>
@@ -53,7 +60,7 @@
     <header class="header" id="header">
         <div class="container header-inner">
             <a href="#inicio" class="brand" aria-label="NRJ Contabilidade Consultiva - início">
-                <img src="assets/img/logo.png" alt="NRJ Contabilidade Consultiva" class="logo">
+                <img src="assets/img/logo.webp" alt="NRJ Contabilidade Consultiva" class="logo" width="300" height="166">
             </a>
 
             <nav id="nav" class="nav" aria-label="Menu principal">
@@ -67,7 +74,7 @@
                     <li><a href="#como-funciona">Como funciona</a></li>
                     <li><a href="#sobre">Sobre</a></li>
                     <li><a href="#faq">Dúvidas</a></li>
-                    <li><a href="https://wa.me/5511985368975" class="btn btn-primary btn-sm" data-whats>Fale com um contador</a></li>
+                    <li><a href="https://wa.me/5511985368674" class="btn btn-primary btn-sm" data-whats>Fale com um contador</a></li>
                 </ul>
             </nav>
         </div>
@@ -82,7 +89,7 @@
                 <p class="hero-text">Cuidamos da contabilidade, dos impostos e da folha da sua empresa para que você
                     foque no que importa: crescer. Atendimento próximo, com contador de verdade.</p>
                 <div class="hero-ctas">
-                    <a data-whats href="https://wa.me/5511985368975?text=Ol%C3%A1!%20Gostaria%20de%20falar%20com%20um%20contador."
+                    <a data-whats href="https://wa.me/5511985368674?text=Ol%C3%A1!%20Gostaria%20de%20falar%20com%20um%20contador."
                         class="btn btn-whats" target="_blank" rel="noopener">
                         <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><use href="#i-whats"/></svg>
                         Falar no WhatsApp
@@ -102,8 +109,8 @@
             <div class="container trust-grid">
                 <div class="trust-item">
                     <svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-shield"/></svg>
-                    <div><strong>Registro no CRC-SP</strong><span>Profissionais habilitados</span></div>
-                    <!-- TODO: inserir o número do CRC, ex.: "CRC-SP nº 000000/O-0" -->
+                    <!-- DEMO: trocar pelo número real do CRC do escritório -->
+                    <div><strong>CRC-SP 000000/O-0</strong><span>Escritório registrado</span></div>
                 </div>
                 <div class="trust-item">
                     <svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-chat"/></svg>
@@ -205,7 +212,7 @@
         <section class="section" id="sobre">
             <div class="container about">
                 <div class="about-img">
-                    <img src="assets/img/FAQ/office.jpg" alt="Profissional organizando a rotina da empresa" loading="lazy">
+                    <img src="assets/img/FAQ/office.webp" alt="Profissional organizando a rotina da empresa" loading="lazy" width="1000" height="664">
                 </div>
                 <div class="about-text">
                     <span class="eyebrow">Quem somos</span>
@@ -217,6 +224,15 @@
                         usando os recursos legais disponíveis para reduzir a carga tributária.</p>
                     <a href="#contato" class="btn btn-primary">Fale com a nossa equipe</a>
                 </div>
+            </div>
+
+            <!-- DEMO: números ilustrativos para apresentação. Substituir pelos reais antes de publicar. -->
+            <div class="container stats" data-demo>
+                <span class="demo-tag" title="Substituir pelos dados reais do escritório">Dados ilustrativos</span>
+                <div class="stat"><strong data-contar="15">+15</strong><span>anos de experiência</span></div>
+                <div class="stat"><strong data-contar="300">+300</strong><span>empresas atendidas</span></div>
+                <div class="stat"><strong data-contar="120">+120</strong><span>empresas abertas</span></div>
+                <div class="stat"><strong>4,9 ★</strong><span>avaliação no Google</span></div>
             </div>
 
             <div class="container values">
@@ -239,26 +255,71 @@
                         de cada cliente.</p>
                 </div>
             </div>
+
+            <!-- DEMO: equipe ilustrativa. Trocar nomes, cargos, CRC e usar fotos reais (assets/img/equipe/). -->
+            <div class="container team" data-demo>
+                <div class="section-head">
+                    <span class="eyebrow">Nossa equipe</span>
+                    <h2>Quem cuida da sua empresa</h2>
+                    <span class="demo-tag" title="Substituir pelos dados reais do escritório">Dados ilustrativos</span>
+                </div>
+                <div class="team-grid">
+                    <div class="member">
+                        <div class="avatar" aria-hidden="true">RA</div>
+                        <h3>Ricardo Almeida</h3>
+                        <span class="cargo">Contador responsável</span>
+                        <small>CRC-SP 000000/O-0</small>
+                    </div>
+                    <div class="member">
+                        <div class="avatar" aria-hidden="true">JS</div>
+                        <h3>Juliana Souza</h3>
+                        <span class="cargo">Fiscal e tributário</span>
+                        <small>CRC-SP 000000/O-0</small>
+                    </div>
+                    <div class="member">
+                        <div class="avatar" aria-hidden="true">MC</div>
+                        <h3>Marcos Costa</h3>
+                        <span class="cargo">Departamento pessoal</span>
+                        <small>Especialista em folha e eSocial</small>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <!-- Depoimentos
-             TODO: quando tiver depoimentos reais de clientes (ou avaliações do Google), adicione aqui.
-             Prova social é um dos elementos que mais aumentam a conversão nos sites concorrentes.
-        <section class="section section-light" id="depoimentos">
+        <!-- DEMO: depoimentos ilustrativos para apresentação.
+             NÃO publicar com estes textos: substituir por depoimentos reais (ou avaliações do Google) ou remover a seção. -->
+        <section class="section section-light" id="depoimentos" data-demo>
             <div class="container">
-                <div class="section-head"><h2>O que dizem nossos clientes</h2></div>
+                <div class="section-head">
+                    <span class="eyebrow">Depoimentos</span>
+                    <h2>O que dizem nossos clientes</h2>
+                    <span class="demo-tag" title="Substituir pelos dados reais do escritório">Dados ilustrativos</span>
+                </div>
                 <div class="cards">
                     <blockquote class="card testimonial">
-                        <p>"Texto do depoimento"</p>
-                        <cite>Nome do cliente — Empresa</cite>
+                        <div class="estrelas" aria-label="5 de 5 estrelas">★★★★★</div>
+                        <p>“Troquei de contador e não precisei me preocupar com nada. A equipe cuidou de toda a
+                            transição e hoje pago menos imposto do que antes.”</p>
+                        <cite><strong>Fernanda Lima</strong>Loja de roupas · Cliente desde 2021</cite>
+                    </blockquote>
+                    <blockquote class="card testimonial">
+                        <div class="estrelas" aria-label="5 de 5 estrelas">★★★★★</div>
+                        <p>“Abri minha empresa em poucos dias e com orientação em cada etapa. Atendimento rápido pelo
+                            WhatsApp sempre que preciso.”</p>
+                        <cite><strong>Carlos Mendes</strong>Consultoria em TI · Cliente desde 2022</cite>
+                    </blockquote>
+                    <blockquote class="card testimonial">
+                        <div class="estrelas" aria-label="5 de 5 estrelas">★★★★★</div>
+                        <p>“O planejamento tributário fez muita diferença no caixa da clínica. Contabilidade de verdade,
+                            que explica e acompanha de perto.”</p>
+                        <cite><strong>Dra. Patrícia Rocha</strong>Clínica odontológica · Cliente desde 2019</cite>
                     </blockquote>
                 </div>
             </div>
         </section>
-        -->
 
         <!-- FAQ -->
-        <section class="section section-light" id="faq">
+        <section class="section" id="faq">
             <div class="container faq">
                 <div class="faq-head">
                     <span class="eyebrow">Perguntas frequentes</span>
@@ -302,7 +363,7 @@
         </section>
 
         <!-- Contato -->
-        <section class="section" id="contato">
+        <section class="section section-light" id="contato">
             <div class="container contact">
                 <div class="contact-info">
                     <span class="eyebrow">Entre em contato</span>
@@ -311,15 +372,19 @@
                     <ul class="contact-list">
                         <li>
                             <svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-whats"/></svg>
-                            <a data-whats href="https://wa.me/5511985368975" target="_blank" rel="noopener">(11) 98536-8975</a>
+                            <a data-whats href="https://wa.me/5511985368674" target="_blank" rel="noopener">(11) 98536-8674</a>
                         </li>
                         <li>
                             <svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-mail"/></svg>
-                            <a href="mailto:contato@contato.com.br">contato@contato.com.br</a>
+                            <a href="mailto:gabrielmk301@gmail.com">gabrielmk301@gmail.com</a>
                         </li>
                         <li>
                             <svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-pin"/></svg>
                             <span>Rua Pereira Estéfano, Vila da Saúde<br>São Paulo - SP, 04144-070</span>
+                        </li>
+                        <li>
+                            <svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-clock"/></svg>
+                            <span>Segunda a sexta, das 8h às 18h</span>
                         </li>
                     </ul>
                 </div>
@@ -362,11 +427,10 @@
                     <input type="text" name="honeypot" class="hidden" tabindex="-1" autocomplete="off">
                     <input type="hidden" name="accessKey" value="b300ce7d-565b-430d-b09f-6f9b3aa66312">
                     <input type="hidden" name="subject" value="Novo contato pelo site - NRJ Contabilidade">
-                    <!-- TODO: ao publicar, troque pelo endereço real, ex.: https://www.seudominio.com.br/obrigado.html -->
-                    <input type="hidden" name="redirectTo" value="http://127.0.0.1:5500/obrigado.html">
+                    <input type="hidden" name="redirectTo" value="https://gabrielmk301.github.io/NALDO_Contabilidade/obrigado.html">
 
                     <button type="submit" class="btn btn-primary btn-block">Enviar mensagem</button>
-                    <small class="form-note">Seus dados são usados apenas para retornarmos o contato.</small>
+                    <small class="form-note">Seus dados são usados apenas para retornarmos o contato. Veja nossa <a href="politica-de-privacidade.html">Política de Privacidade</a>.</small>
                 </form>
             </div>
         </section>
@@ -376,7 +440,7 @@
     <footer class="footer">
         <div class="container footer-grid">
             <div>
-                <img src="assets/img/Objetivo/logo2.png" alt="NRJ Contabilidade" class="footer-logo" loading="lazy">
+                <img src="assets/img/Objetivo/logo2.webp" alt="NRJ Contabilidade" class="footer-logo" loading="lazy" width="481" height="101">
                 <p>Contabilidade consultiva para empresas que querem crescer com segurança.</p>
                 <div class="social">
                     <!-- TODO: colocar os links reais das redes sociais -->
@@ -390,8 +454,9 @@
                 <address>
                     Rua Pereira Estéfano, Vila da Saúde<br>
                     São Paulo - SP, 04144-070<br>
-                    <a href="tel:+5511985368975">(11) 98536-8975</a><br>
-                    <a href="mailto:contato@contato.com.br">contato@contato.com.br</a>
+                    <a href="tel:+5511985368674">(11) 98536-8674</a><br>
+                    <a href="mailto:gabrielmk301@gmail.com">gabrielmk301@gmail.com</a><br>
+                    Seg. a sex., das 8h às 18h
                 </address>
             </div>
             <div>
@@ -414,7 +479,10 @@
             </div>
         </div>
         <div class="container copyright">
-            © <span id="ano">2026</span> NRJ Contabilidade Consultiva. Todos os direitos reservados.
+            <!-- DEMO: trocar CNPJ e CRC pelos dados reais -->
+            NRJ Contabilidade Consultiva · CNPJ 00.000.000/0001-00 · CRC-SP 000000/O-0<br>
+            © <span id="ano">2026</span> Todos os direitos reservados. ·
+            <a href="politica-de-privacidade.html">Política de Privacidade</a>
         </div>
     </footer>
 
@@ -485,11 +553,13 @@
                 <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><use href="#i-whats"/></svg>
                 Continuar no WhatsApp
             </button>
+            <small class="form-note">Ao continuar, você concorda com nossa
+                <a href="politica-de-privacidade.html" target="_blank">Política de Privacidade</a>.</small>
         </form>
     </dialog>
 
     <!-- Botão flutuante do WhatsApp -->
-    <a class="whats-float" data-whats href="https://wa.me/5511985368975?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20um%20contador."
+    <a class="whats-float" data-whats href="https://wa.me/5511985368674?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20um%20contador."
         target="_blank" rel="noopener" aria-label="Conversar no WhatsApp">
         <svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-whats"/></svg>
     </a>
@@ -510,8 +580,8 @@
         <symbol id="i-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
     </svg>
 
-    <script src="assets/app/app.js"></script>
-    <script src="assets/app/chatbot.js"></script>
+    <script src="assets/app/app.js" defer></script>
+    <script src="assets/app/chatbot.js" defer></script>
 </body>
 
 </html>

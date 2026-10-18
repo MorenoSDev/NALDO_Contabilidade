@@ -167,7 +167,10 @@ async function irPara(destino) {
     chatEntrada.hidden = true;
 
     if (destino === 'contato') {
-        await botDiz(['Perfeito! Vou te conectar com um dos nossos contadores pelo WhatsApp.', 'Qual é o seu nome?']);
+        await botDiz([
+            'Perfeito! Vou te conectar com um dos nossos contadores pelo WhatsApp.',
+            'Seus dados serão usados só para retornarmos o contato (veja a Política de Privacidade no rodapé). Qual é o seu nome?',
+        ]);
         pedirTexto('nome', 'Digite seu nome');
         return;
     }
