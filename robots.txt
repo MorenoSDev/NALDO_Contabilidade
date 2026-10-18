@@ -3,4 +3,4 @@ Allow: /
 Disallow: /obrigado.html
 
 # Se usar domínio próprio, troque o endereço abaixo
-Sitemap: https://gabrielmk301.github.io/NALDO_Contabilidade/sitemap.xml
+Sitemap: https://morenosdev.github.io/NALDO_Contabilidade/sitemap.xml
