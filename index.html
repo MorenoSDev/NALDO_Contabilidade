@@ -418,6 +418,33 @@
         </div>
     </footer>
 
+    <!-- Chatbot (fluxo de perguntas em assets/app/chatbot.js) -->
+    <div class="chat" id="chat">
+        <section class="chat-janela" id="chat-janela" aria-label="Assistente virtual" hidden>
+            <header class="chat-topo">
+                <img src="assets/img/favicon/android-chrome-192x192.png" alt="" class="chat-avatar">
+                <div>
+                    <strong>Assistente NRJ</strong>
+                    <span>Respondemos em horário comercial</span>
+                </div>
+                <button type="button" class="chat-fechar" id="chat-fechar" aria-label="Fechar chat">&times;</button>
+            </header>
+            <div class="chat-mensagens" id="chat-mensagens" aria-live="polite"></div>
+            <div class="chat-opcoes" id="chat-opcoes"></div>
+            <form class="chat-entrada" id="chat-entrada" hidden>
+                <input type="text" id="chat-texto" autocomplete="off" aria-label="Sua resposta">
+                <button type="submit" aria-label="Enviar">
+                    <svg aria-hidden="true" viewBox="0 0 24 24"><path fill="currentColor" d="M3 20.5v-6l8-2.5-8-2.5v-6L22 12Z"/></svg>
+                </button>
+            </form>
+        </section>
+        <button type="button" class="chat-botao" id="chat-botao" aria-controls="chat-janela" aria-expanded="false"
+            aria-label="Abrir assistente virtual">
+            <svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-chat"/></svg>
+            <span class="chat-balao" id="chat-balao">Posso ajudar?</span>
+        </button>
+    </div>
+
     <!-- Modal: formulário rápido antes de abrir o WhatsApp -->
     <dialog class="modal" id="modal-whats" aria-labelledby="modal-titulo">
         <form class="modal-box" id="form-whats" method="dialog">
@@ -484,6 +511,7 @@
     </svg>
 
     <script src="assets/app/app.js"></script>
+    <script src="assets/app/chatbot.js"></script>
 </body>
 
 </html>

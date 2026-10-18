@@ -85,9 +85,9 @@ function enviarNotificacaoEmail(dados) {
         name: dados.nome,
         phone: dados.telefone,
         email: dados.email || 'não informado',
-        message: 'Contato iniciado pelo botão do WhatsApp. Assunto: ' + dados.servico,
+        message: `Contato iniciado pelo ${dados.origem || 'botão do WhatsApp'}. Assunto: ${dados.servico}`,
         '$servico': dados.servico,
-        honeypot: dados.honeypot,
+        honeypot: dados.honeypot || '',
     });
     if (dados.email) corpo.append('replyTo', dados.email);
 
@@ -99,17 +99,9 @@ function enviarNotificacaoEmail(dados) {
     }).catch(() => { /* falha no e-mail não impede a conversa no WhatsApp */ });
 }
 
-formWhats.addEventListener('submit', (evento) => {
-    evento.preventDefault();
-
-    const dados = {
-        nome: formWhats.name.value.trim(),
-        telefone: formWhats.phone.value.trim(),
-        email: formWhats.email.value.trim(),
-        servico: formWhats.servico.value,
-        honeypot: formWhats.honeypot.value,
-    };
-
+// Envia o aviso por e-mail e abre o WhatsApp com a mensagem pronta
+// (usado pelo formulário rápido e pelo chatbot)
+function iniciarWhatsApp(dados) {
     enviarNotificacaoEmail(dados);
 
     const texto = `Olá! Meu nome é ${dados.nome}. Vim pelo site e gostaria de falar sobre: ${dados.servico}.`;
@@ -119,6 +111,18 @@ formWhats.addEventListener('submit', (evento) => {
     const janela = window.open(url, '_blank');
     if (janela) janela.opener = null;
     else window.location.href = url;
+}
+
+formWhats.addEventListener('submit', (evento) => {
+    evento.preventDefault();
+
+    iniciarWhatsApp({
+        nome: formWhats.name.value.trim(),
+        telefone: formWhats.phone.value.trim(),
+        email: formWhats.email.value.trim(),
+        servico: formWhats.servico.value,
+        honeypot: formWhats.honeypot.value,
+    });
 
     modal.close();
     formWhats.reset();

@@ -690,11 +690,11 @@ address {
 
 .whats-float {
     position: fixed;
-    right: 20px;
-    bottom: 20px;
+    right: 24px;
+    bottom: 96px;
     z-index: 90;
-    width: 60px;
-    height: 60px;
+    width: 52px;
+    height: 52px;
     display: grid;
     place-items: center;
     border-radius: 50%;
@@ -709,8 +709,256 @@ address {
 }
 
 .whats-float svg {
-    width: 32px;
-    height: 32px;
+    width: 28px;
+    height: 28px;
+}
+
+/* Chatbot */
+
+.chat {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    z-index: 95;
+}
+
+.chat-botao {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: grid;
+    place-items: center;
+    border: none;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--cor0), var(--cor2));
+    color: var(--cor5);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, .25);
+    cursor: pointer;
+    transition: transform .2s;
+}
+
+.chat-botao:hover {
+    transform: scale(1.08);
+}
+
+.chat-botao > svg {
+    width: 28px;
+    height: 28px;
+}
+
+.chat-balao {
+    position: absolute;
+    right: 72px;
+    top: 50%;
+    transform: translateY(-50%);
+    white-space: nowrap;
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: var(--cor5);
+    color: var(--cor3);
+    font: 600 .9rem 'Poppins', sans-serif;
+    box-shadow: var(--sombra);
+    animation: modal-entra .4s ease 1.5s both;
+}
+
+.chat.aberto .chat-balao,
+.chat.visto .chat-balao {
+    display: none;
+}
+
+.chat-janela {
+    position: absolute;
+    right: 0;
+    bottom: 76px;
+    width: min(370px, 100vw - 32px);
+    height: min(540px, 100vh - 120px);
+    display: flex;
+    flex-direction: column;
+    background: var(--cor5);
+    border-radius: 16px;
+    box-shadow: 0 24px 60px rgba(0, 0, 0, .25);
+    overflow: hidden;
+    animation: modal-entra .25s ease;
+}
+
+.chat-janela[hidden] {
+    display: none;
+}
+
+.chat-topo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 14px 16px;
+    background: var(--cor3);
+    color: var(--cor5);
+}
+
+.chat-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--cor5);
+    object-fit: cover;
+    object-position: 50% 45%;
+    padding: 0;
+}
+
+.chat-topo strong {
+    display: block;
+    line-height: 1.2;
+}
+
+.chat-topo span {
+    font-size: .8rem;
+    color: var(--cor4);
+}
+
+.chat-fechar {
+    margin-left: auto;
+    border: none;
+    background: none;
+    color: var(--cor5);
+    font-size: 1.8rem;
+    line-height: 1;
+    cursor: pointer;
+}
+
+.chat-mensagens {
+    flex: 1;
+    overflow-y: auto;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    background: var(--fundo-claro);
+}
+
+.msg {
+    max-width: 85%;
+    padding: 10px 14px;
+    border-radius: 14px;
+    font-size: .92rem;
+    line-height: 1.5;
+    animation: modal-entra .2s ease;
+}
+
+.msg-bot {
+    align-self: flex-start;
+    background: var(--cor5);
+    border: 1px solid var(--borda);
+    border-bottom-left-radius: 4px;
+}
+
+.msg-user {
+    align-self: flex-end;
+    background: var(--cor0);
+    color: var(--cor5);
+    border-bottom-right-radius: 4px;
+}
+
+.msg-digitando {
+    display: flex;
+    gap: 4px;
+}
+
+.msg-digitando i {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--texto-suave);
+    animation: pisca 1s infinite;
+}
+
+.msg-digitando i:nth-child(2) {
+    animation-delay: .2s;
+}
+
+.msg-digitando i:nth-child(3) {
+    animation-delay: .4s;
+}
+
+@keyframes pisca {
+    50% {
+        opacity: .2;
+    }
+}
+
+.chat-opcoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    padding: 10px 16px;
+    border-top: 1px solid var(--borda);
+}
+
+.chat-opcoes:empty {
+    display: none;
+}
+
+.chat-opcoes button {
+    font: 500 .85rem 'Poppins', sans-serif;
+    padding: 7px 12px;
+    border: 1px solid var(--cor0);
+    border-radius: 999px;
+    background: var(--cor5);
+    color: var(--cor2);
+    cursor: pointer;
+    transition: background-color .2s, color .2s;
+}
+
+.chat-opcoes button:hover {
+    background: var(--cor0);
+    color: var(--cor5);
+}
+
+.chat-opcoes .opcao-whats {
+    border-color: var(--whats);
+    background: var(--whats);
+    color: var(--cor5);
+}
+
+.chat-entrada {
+    display: flex;
+    gap: 8px;
+    padding: 10px 12px;
+    border-top: 1px solid var(--borda);
+}
+
+.chat-entrada[hidden] {
+    display: none;
+}
+
+.chat-entrada input {
+    flex: 1;
+    font: inherit;
+    padding: 10px 14px;
+    border: 1px solid var(--borda);
+    border-radius: 999px;
+    background: var(--fundo-claro);
+}
+
+.chat-entrada input:focus {
+    outline: none;
+    border-color: var(--cor0);
+}
+
+.chat-entrada button {
+    flex: none;
+    width: 42px;
+    height: 42px;
+    display: grid;
+    place-items: center;
+    border: none;
+    border-radius: 50%;
+    background: var(--cor0);
+    color: var(--cor5);
+    cursor: pointer;
+}
+
+.chat-entrada button svg {
+    width: 20px;
+    height: 20px;
 }
 
 /* Modal do WhatsApp */
