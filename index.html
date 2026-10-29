@@ -6,36 +6,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>NRJ Contabilidade Consultiva | Contabilidade em São Paulo - SP</title>
     <meta name="description"
-        content="Escritório de contabilidade consultiva em São Paulo. Abertura de empresas, contabilidade, fiscal, folha de pagamento, MEI e planejamento tributário. Fale com um contador pelo WhatsApp.">
-    <meta name="theme-color" content="#023440">
+        content="Escritório de contabilidade em São Paulo: balanços, DRE, balancetes, abertura, alteração e encerramento de empresas e MEI. Documentos contábeis disponíveis no portal do cliente.">
+    <meta name="theme-color" content="#022f66">
     <link rel="canonical" href="https://morenosdev.github.io/NALDO_Contabilidade/">
 
     <!-- Open Graph (pré-visualização ao compartilhar no WhatsApp/redes) -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="NRJ Contabilidade Consultiva">
-    <meta property="og:description" content="Transformamos números em oportunidades. Contabilidade consultiva para sua empresa crescer com segurança.">
-    <meta property="og:image" content="https://morenosdev.github.io/NALDO_Contabilidade/assets/img/logo.png">
+    <meta property="og:description" content="Transformamos números em oportunidades. Contabilidade clara, próxima e com seus documentos sempre à mão.">
+    <meta property="og:image" content="https://morenosdev.github.io/NALDO_Contabilidade/assets/img/marca/og-nrj.jpg">
     <meta property="og:url" content="https://morenosdev.github.io/NALDO_Contabilidade/">
     <meta property="og:locale" content="pt_BR">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap">
-    <link rel="stylesheet" href="assets/style.css">
-    <!-- Carrega antes a imagem do topo (versão certa para cada tela) -->
-    <link rel="preload" as="image" href="assets/img/fundo01.webp" media="(min-width: 861px)">
-    <link rel="preload" as="image" href="assets/img/fundo02.webp" media="(max-width: 860px)">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="assets/css/tokens.css">
+    <link rel="stylesheet" href="assets/css/base.css">
+    <link rel="stylesheet" href="assets/css/components.css">
+    <link rel="stylesheet" href="assets/css/site.css">
     <link rel="icon" href="assets/img/favicon/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" href="assets/img/favicon/apple-touch-icon.png">
     <link rel="manifest" href="assets/img/favicon/site.webmanifest">
 
-    <!-- Dados estruturados para o Google (aparece melhor nas buscas locais) -->
+    <!-- Ativa as animações de entrada; se os scripts não carregarem, o conteúdo volta a aparecer -->
+    <script>
+        document.documentElement.classList.add('js');
+        setTimeout(function () { if (!window.NRJ_READY) document.documentElement.classList.remove('js'); }, 3000);
+    </script>
+
+    <!-- Dados estruturados para o Google -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
         "@type": "AccountingService",
         "name": "NRJ Contabilidade Consultiva",
-        "image": "https://morenosdev.github.io/NALDO_Contabilidade/assets/img/logo.png",
+        "image": "https://morenosdev.github.io/NALDO_Contabilidade/assets/img/marca/og-nrj.jpg",
         "url": "https://morenosdev.github.io/NALDO_Contabilidade/",
         "telephone": "+55-11-98536-8674",
         "email": "gabrielmk301@gmail.com",
@@ -56,398 +63,653 @@
 <body>
     <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
-    <!-- Cabeçalho -->
-    <header class="header" id="header">
+    <!-- ===================== Cabeçalho ===================== -->
+    <header class="site-header" data-header>
         <div class="container header-inner">
-            <a href="#inicio" class="brand" aria-label="NRJ Contabilidade Consultiva - início">
-                <img src="assets/img/logo.webp" alt="NRJ Contabilidade Consultiva" class="logo" width="300" height="166">
+            <a href="#inicio" class="brand" aria-label="NRJ Contabilidade Consultiva — início">
+                <img src="assets/img/marca/simbolo-nrj.webp" alt="" width="722" height="343">
+                <span class="brand-text">Contabilidade<br>Consultiva</span>
             </a>
 
-            <nav id="nav" class="nav" aria-label="Menu principal">
-                <button id="btn-mobile" class="btn-mobile" aria-label="Abrir menu" aria-controls="menu"
-                    aria-expanded="false">
-                    <span id="hamburger"></span>
-                </button>
-                <ul id="menu" class="menu">
-                    <li><a href="#inicio" class="active">Início</a></li>
-                    <li><a href="#servicos">Serviços</a></li>
-                    <li><a href="#como-funciona">Como funciona</a></li>
-                    <li><a href="#sobre">Sobre</a></li>
-                    <li><a href="#faq">Dúvidas</a></li>
-                    <li><a href="https://wa.me/5511985368674" class="btn btn-primary btn-sm" data-whats>Fale com um contador</a></li>
+            <nav class="nav" id="nav" aria-label="Menu principal" data-nav>
+                <ul class="nav-list" role="list">
+                    <li><a href="#servicos" data-nav-link>Serviços</a></li>
+                    <li><a href="#diferenciais" data-nav-link>Diferenciais</a></li>
+                    <li><a href="#como-funciona" data-nav-link>Como funciona</a></li>
+                    <li><a href="#sobre" data-nav-link>Sobre</a></li>
+                    <li><a href="#faq" data-nav-link>Dúvidas</a></li>
                 </ul>
+                <div class="nav-actions">
+                    <a href="portal/login.html" class="btn btn-ghost btn-sm">
+                        <svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg>
+                        Área do cliente
+                    </a>
+                    <a href="https://wa.me/5511985368674" class="btn btn-primary btn-sm" data-whats>
+                        Fale com um contador
+                    </a>
+                </div>
             </nav>
+
+            <button class="menu-toggle" type="button" aria-controls="nav" aria-expanded="false"
+                aria-label="Abrir menu" data-menu-toggle>
+                <span></span><span></span><span></span>
+            </button>
         </div>
     </header>
 
     <main id="conteudo">
-        <!-- Hero -->
+
+        <!-- ===================== Hero ===================== -->
         <section class="hero" id="inicio">
+            <div class="hero-bg" aria-hidden="true">
+                <div class="hero-grid"></div>
+                <div class="hero-glow hero-glow-1"></div>
+                <div class="hero-glow hero-glow-2"></div>
+            </div>
+
             <div class="container hero-inner">
-                <span class="eyebrow">Contabilidade consultiva em São Paulo</span>
-                <h1 class="hero-title">Transformamos números em <span class="destaque">oportunidades</span></h1>
-                <p class="hero-text">Cuidamos da contabilidade, dos impostos e da folha da sua empresa para que você
-                    foque no que importa: crescer. Atendimento próximo, com contador de verdade.</p>
-                <div class="hero-ctas">
-                    <a data-whats href="https://wa.me/5511985368674?text=Ol%C3%A1!%20Gostaria%20de%20falar%20com%20um%20contador."
-                        class="btn btn-whats" target="_blank" rel="noopener">
-                        <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><use href="#i-whats"/></svg>
-                        Falar no WhatsApp
-                    </a>
-                    <a href="#contato" class="btn btn-outline">Solicitar proposta</a>
+                <div class="hero-copy">
+                    <span class="eyebrow hero-in" style="--d:0">Contabilidade consultiva em São Paulo</span>
+                    <h1 class="hero-title hero-in" style="--d:1">
+                        Transformamos números em <span class="text-gradient">oportunidades</span>
+                    </h1>
+                    <p class="hero-lead hero-in" style="--d:2">
+                        Balanços, DRE e relatórios contábeis feitos com atenção e explicados com clareza. E seus
+                        documentos ficam disponíveis no portal do cliente, quando você precisar.
+                    </p>
+                    <div class="hero-ctas hero-in" style="--d:3">
+                        <a href="https://wa.me/5511985368674" class="btn btn-primary btn-lg" data-whats>
+                            <svg class="icon" aria-hidden="true"><use href="#i-whats"/></svg>
+                            Fale com um contador
+                        </a>
+                        <a href="#servicos" class="btn btn-ghost btn-lg">
+                            Conheça os serviços
+                            <svg class="icon arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+                        </a>
+                    </div>
+                    <div class="hero-proof hero-in" style="--d:4">
+                        <img src="assets/img/equipe/contador-avatar.webp" alt="" width="160" height="160">
+                        <p><strong>Atendimento direto com o contador responsável.</strong>
+                            Sem robô, sem fila de chamados.</p>
+                    </div>
                 </div>
-                <ul class="hero-badges">
-                    <li>✓ Abertura de empresa</li>
-                    <li>✓ Troca de contador sem burocracia</li>
-                    <li>✓ Planejamento tributário</li>
-                </ul>
+
+                <!-- Interface ilustrativa: representa o portal de documentos contábeis -->
+                <div class="hero-visual" aria-hidden="true" data-parallax-root>
+                    <div class="mock mock-main" data-parallax="6">
+                        <div class="mock-bar">
+                            <span class="mock-dots"><i></i><i></i><i></i></span>
+                            <span class="mock-url">
+                                <svg class="icon"><use href="#i-lock"/></svg>
+                                Portal do cliente · Documentos
+                            </span>
+                        </div>
+                        <div class="mock-body">
+                            <div class="mock-head">
+                                <div>
+                                    <small>Exercício 2026</small>
+                                    <strong>Balanço patrimonial</strong>
+                                </div>
+                                <span class="badge badge-success badge-dot">Atualizado</span>
+                            </div>
+                            <div class="mock-chart">
+                                <div class="mock-bars">
+                                    <span style="--h:62%"></span><span style="--h:78%"></span>
+                                    <span style="--h:54%"></span><span style="--h:88%"></span>
+                                    <span style="--h:70%"></span><span style="--h:94%"></span>
+                                </div>
+                                <div class="mock-legend">
+                                    <span><i class="lg-a"></i>Ativo</span>
+                                    <span><i class="lg-b"></i>Passivo</span>
+                                    <span><i class="lg-c"></i>Patrimônio líquido</span>
+                                </div>
+                            </div>
+                            <ul class="mock-docs" role="list">
+                                <li>
+                                    <span class="file-ico">PDF</span>
+                                    <div><strong>Balancete</strong><small>Referência: setembro/2026</small></div>
+                                    <span class="badge badge-brand">Novo</span>
+                                </li>
+                                <li>
+                                    <span class="file-ico">PDF</span>
+                                    <div><strong>DRE</strong><small>Referência: 3º trimestre/2026</small></div>
+                                    <svg class="icon"><use href="#i-download"/></svg>
+                                </li>
+                                <li>
+                                    <span class="file-ico file-ico-alt">XLS</span>
+                                    <div><strong>Relatório contábil</strong><small>Referência: agosto/2026</small></div>
+                                    <svg class="icon"><use href="#i-download"/></svg>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="mock-float mock-float-1" data-parallax="14">
+                        <span class="float-ico float-ico-ok"><svg class="icon"><use href="#i-check"/></svg></span>
+                        <div><strong>Balancete disponível</strong><small>Enviado pelo escritório</small></div>
+                    </div>
+
+                    <div class="mock-float mock-float-2" data-parallax="-10">
+                        <div class="mf2-head">
+                            <strong>Demonstração do resultado</strong>
+                            <span class="badge">DRE</span>
+                        </div>
+                        <svg class="spark" viewBox="0 0 160 48" preserveAspectRatio="none">
+                            <defs>
+                                <linearGradient id="spark-fill" x1="0" x2="0" y1="0" y2="1">
+                                    <stop offset="0" stop-color="#2563c0" stop-opacity=".35"/>
+                                    <stop offset="1" stop-color="#2563c0" stop-opacity="0"/>
+                                </linearGradient>
+                            </defs>
+                            <path class="spark-area" d="M0 40 L20 34 L40 36 L60 26 L80 28 L100 18 L120 20 L140 10 L160 6 L160 48 L0 48Z"/>
+                            <path class="spark-line" d="M0 40 L20 34 L40 36 L60 26 L80 28 L100 18 L120 20 L140 10 L160 6"/>
+                        </svg>
+                        <small>Receitas, custos e despesas do período</small>
+                    </div>
+
+                    <div class="mock-float mock-float-3" data-parallax="10">
+                        <svg class="icon"><use href="#i-shield"/></svg>
+                        Acesso individual e seguro
+                    </div>
+                </div>
             </div>
         </section>
 
-        <!-- Diferenciais / confiança -->
-        <section class="trust" aria-label="Diferenciais">
-            <div class="container trust-grid">
+        <!-- ===================== Faixa de confiança ===================== -->
+        <section class="trust" aria-label="Diferenciais rápidos">
+            <div class="container trust-inner">
                 <div class="trust-item">
-                    <svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-shield"/></svg>
-                    <!-- DEMO: trocar pelo número real do CRC do escritório -->
-                    <div><strong>CRC-SP 000000/O-0</strong><span>Escritório registrado</span></div>
+                    <svg class="icon" aria-hidden="true"><use href="#i-badge"/></svg>
+                    <div>
+                        <!-- DEMO: trocar pelo número real do CRC do escritório -->
+                        <strong>CRC-SP 000000/O-0</strong>
+                        <span>Escritório registrado</span>
+                    </div>
                 </div>
                 <div class="trust-item">
-                    <svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-chat"/></svg>
+                    <svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg>
                     <div><strong>Atendimento humano</strong><span>WhatsApp, telefone e e-mail</span></div>
                 </div>
                 <div class="trust-item">
-                    <svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-chart"/></svg>
-                    <div><strong>Redução legal de impostos</strong><span>Planejamento tributário</span></div>
+                    <svg class="icon" aria-hidden="true"><use href="#i-folder"/></svg>
+                    <div><strong>Portal do cliente</strong><span>Documentos disponíveis online</span></div>
                 </div>
                 <div class="trust-item">
-                    <svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-clock"/></svg>
-                    <div><strong>Prazos em dia</strong><span>Sem multas e sem surpresas</span></div>
+                    <svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>
+                    <div><strong>Entregas no prazo</strong><span>Rotina contábil organizada</span></div>
                 </div>
             </div>
         </section>
 
-        <!-- Serviços -->
+        <!-- ===================== Serviços ===================== -->
         <section class="section" id="servicos">
             <div class="container">
-                <div class="section-head">
-                    <span class="eyebrow">Deixe a burocracia com a gente</span>
-                    <h2>Nossos serviços</h2>
-                    <p>Do CNPJ ao balanço: soluções completas para cada fase da sua empresa.</p>
-                </div>
+                <header class="section-head" data-reveal>
+                    <span class="eyebrow">Serviços</span>
+                    <h2>Tudo o que a contabilidade da sua empresa precisa</h2>
+                    <p>Do registro do CNPJ às demonstrações contábeis do fim do ano, com acompanhamento próximo
+                        em cada etapa.</p>
+                </header>
 
-                <div class="cards">
-                    <article class="card">
-                        <div class="card-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-rocket"/></svg></div>
+                <div class="bento">
+                    <article class="card card-hover spotlight bento-main" data-reveal>
+                        <div class="bento-text">
+                            <span class="icon-box"><svg aria-hidden="true"><use href="#i-chart"/></svg></span>
+                            <h3>Contabilidade completa</h3>
+                            <p>Escrituração contábil e demonstrações que mostram a real situação da sua empresa,
+                                prontas para bancos, sócios e investidores.</p>
+                            <ul class="check-list" role="list">
+                                <li>Balancetes mensais</li>
+                                <li>Balanço patrimonial</li>
+                                <li>Demonstração do resultado (DRE)</li>
+                                <li>Relatórios contábeis</li>
+                            </ul>
+                        </div>
+                        <div class="bento-art" aria-hidden="true">
+                            <div class="report">
+                                <div class="report-row report-row-head"><span></span><span></span></div>
+                                <div class="report-row"><span style="--w:70%"></span><b></b></div>
+                                <div class="report-row"><span style="--w:55%"></span><b></b></div>
+                                <div class="report-row"><span style="--w:82%"></span><b></b></div>
+                                <div class="report-row"><span style="--w:46%"></span><b></b></div>
+                                <div class="report-total"><span></span><b></b></div>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="card card-hover spotlight" data-reveal>
+                        <span class="icon-box"><svg aria-hidden="true"><use href="#i-rocket"/></svg></span>
                         <h3>Abertura de empresa</h3>
-                        <p>Escolhemos o melhor enquadramento e cuidamos de todo o registro, alvarás e inscrições.</p>
+                        <p>Definimos com você o tipo de empresa e cuidamos do registro, do CNPJ, das inscrições e
+                            dos alvarás.</p>
                     </article>
-                    <article class="card">
-                        <div class="card-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-calc"/></svg></div>
-                        <h3>Contábil</h3>
-                        <p>Escrituração, balanços e demonstrativos que mostram a real saúde do seu negócio.</p>
+
+                    <article class="card card-hover spotlight" data-reveal>
+                        <span class="icon-box"><svg aria-hidden="true"><use href="#i-building"/></svg></span>
+                        <h3>Alteração e encerramento</h3>
+                        <p>Mudança de endereço, de sócios ou de atividade e baixa da empresa, com toda a parte
+                            societária em ordem.</p>
                     </article>
-                    <article class="card">
-                        <div class="card-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-doc"/></svg></div>
-                        <h3>Fiscal e tributário</h3>
-                        <p>Apuração de impostos, obrigações acessórias e emissão de guias sempre no prazo.</p>
-                    </article>
-                    <article class="card">
-                        <div class="card-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-users"/></svg></div>
-                        <h3>Trabalhista e folha</h3>
-                        <p>Folha de pagamento, pró-labore, admissões, rescisões, férias e eSocial.</p>
-                    </article>
-                    <article class="card">
-                        <div class="card-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-chart"/></svg></div>
-                        <h3>Planejamento tributário</h3>
-                        <p>Diagnóstico das rotinas da empresa para pagar menos imposto dentro da lei.</p>
-                    </article>
-                    <article class="card">
-                        <div class="card-icon"><svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-swap"/></svg></div>
+
+                    <article class="card card-hover spotlight" data-reveal>
+                        <span class="icon-box"><svg aria-hidden="true"><use href="#i-trending"/></svg></span>
                         <h3>MEI e desenquadramento</h3>
-                        <p>Regularização do MEI e migração para ME quando o faturamento crescer.</p>
+                        <p>Orientação para manter o MEI regular e migração para ME quando o faturamento
+                            ultrapassar o limite.</p>
+                    </article>
+
+                    <article class="card card-hover spotlight" data-reveal>
+                        <span class="icon-box"><svg aria-hidden="true"><use href="#i-swap"/></svg></span>
+                        <h3>Troca de contador</h3>
+                        <p>Falamos com o contador anterior e cuidamos da transição. Você só assina a
+                            autorização.</p>
                     </article>
                 </div>
 
-                <div class="center">
-                    <a href="#contato" class="btn btn-primary">Quero uma proposta</a>
+                <div class="section-cta" data-reveal>
+                    <p>Não sabe por onde começar?</p>
+                    <a href="#contato" class="btn btn-dark">
+                        Peça uma proposta
+                        <svg class="icon arrow" aria-hidden="true"><use href="#i-arrow-right"/></svg>
+                    </a>
                 </div>
             </div>
         </section>
 
-        <!-- Como funciona -->
-        <section class="section section-dark" id="como-funciona">
+        <!-- ===================== Diferenciais ===================== -->
+        <section class="section section-dark" id="diferenciais">
+            <div class="dark-bg" aria-hidden="true"></div>
             <div class="container">
-                <div class="section-head">
-                    <span class="eyebrow">Simples assim</span>
-                    <h2>Como funciona</h2>
-                    <p>Trocar de contador ou abrir sua empresa leva poucos passos.</p>
+                <header class="section-head" data-reveal>
+                    <span class="eyebrow eyebrow-dark">Diferenciais</span>
+                    <h2>Contabilidade próxima, com a organização de um produto digital</h2>
+                    <p>Unimos o atendimento de um escritório de confiança à praticidade de ter tudo acessível
+                        online.</p>
+                </header>
+
+                <div class="features">
+                    <article class="feature" data-reveal>
+                        <span class="feature-ico"><svg aria-hidden="true"><use href="#i-user"/></svg></span>
+                        <h3>Contador de verdade</h3>
+                        <p>Você fala direto com quem cuida da sua contabilidade e recebe respostas claras, sem
+                            termos complicados.</p>
+                    </article>
+                    <article class="feature" data-reveal>
+                        <span class="feature-ico"><svg aria-hidden="true"><use href="#i-folder"/></svg></span>
+                        <h3>Documentos 24 horas</h3>
+                        <p>Balanços, DRE e balancetes ficam no portal do cliente, prontos para visualizar ou
+                            baixar.</p>
+                    </article>
+                    <article class="feature" data-reveal>
+                        <span class="feature-ico"><svg aria-hidden="true"><use href="#i-eye"/></svg></span>
+                        <h3>Transparência</h3>
+                        <p>Explicamos o que cada demonstração mostra, para que os números ajudem nas suas
+                            decisões.</p>
+                    </article>
+                    <article class="feature" data-reveal>
+                        <span class="feature-ico"><svg aria-hidden="true"><use href="#i-shield"/></svg></span>
+                        <h3>Sigilo e segurança</h3>
+                        <p>Cada empresa acessa apenas os próprios documentos, com login individual e
+                            armazenamento privado.</p>
+                    </article>
                 </div>
-                <ol class="steps">
-                    <li class="step">
-                        <span class="step-num">1</span>
+            </div>
+        </section>
+
+        <!-- ===================== Como funciona ===================== -->
+        <section class="section" id="como-funciona">
+            <div class="container">
+                <header class="section-head" data-reveal>
+                    <span class="eyebrow">Como funciona</span>
+                    <h2>Começar é simples</h2>
+                    <p>Em poucos passos sua empresa passa a ter uma contabilidade organizada e acompanhada.</p>
+                </header>
+
+                <ol class="steps" role="list" data-steps>
+                    <li class="step" data-reveal>
+                        <span class="step-num">01</span>
                         <h3>Conversa inicial</h3>
-                        <p>Entendemos seu negócio, faturamento e objetivos, sem compromisso.</p>
+                        <p>Entendemos o seu negócio, o momento da empresa e o que você precisa.</p>
                     </li>
-                    <li class="step">
-                        <span class="step-num">2</span>
-                        <h3>Diagnóstico e proposta</h3>
-                        <p>Indicamos o regime tributário ideal e enviamos uma proposta clara.</p>
+                    <li class="step" data-reveal>
+                        <span class="step-num">02</span>
+                        <h3>Proposta clara</h3>
+                        <p>Você recebe uma proposta objetiva, com o que está incluso e o valor mensal.</p>
                     </li>
-                    <li class="step">
-                        <span class="step-num">3</span>
-                        <h3>A gente cuida de tudo</h3>
-                        <p>Fazemos a abertura ou a transição com o contador anterior por você.</p>
+                    <li class="step" data-reveal>
+                        <span class="step-num">03</span>
+                        <h3>Abertura ou transição</h3>
+                        <p>Abrimos sua empresa ou assumimos a contabilidade junto ao contador anterior.</p>
                     </li>
-                    <li class="step">
-                        <span class="step-num">4</span>
-                        <h3>Acompanhamento contínuo</h3>
-                        <p>Relatórios, guias no prazo e consultoria para decisões do dia a dia.</p>
+                    <li class="step" data-reveal>
+                        <span class="step-num">04</span>
+                        <h3>Acompanhamento</h3>
+                        <p>Rotina contábil em dia e documentos publicados no seu portal do cliente.</p>
                     </li>
                 </ol>
             </div>
         </section>
 
-        <!-- Sobre -->
-        <section class="section" id="sobre">
-            <div class="container about">
-                <div class="about-img">
-                    <img src="assets/img/FAQ/office.webp" alt="Profissional organizando a rotina da empresa" loading="lazy" width="1000" height="664">
+        <!-- ===================== Portal do cliente ===================== -->
+        <section class="section section-subtle" id="portal">
+            <div class="container split">
+                <div class="split-text" data-reveal>
+                    <span class="eyebrow">Portal do cliente</span>
+                    <h2>Seus documentos contábeis em um só lugar</h2>
+                    <p>Chega de pedir arquivos por WhatsApp ou e-mail. Entre com seu e-mail e senha e encontre
+                        tudo organizado por categoria e período.</p>
+                    <ul class="check-list check-list-lg" role="list">
+                        <li>Balanços, DRE, balancetes e documentos societários</li>
+                        <li>Pesquisa e filtros por categoria, período e formato</li>
+                        <li>Visualize PDFs na tela ou baixe o arquivo original</li>
+                        <li>Cada empresa acessa somente os próprios arquivos</li>
+                    </ul>
+                    <a href="portal/login.html" class="btn btn-dark btn-lg">
+                        <svg class="icon" aria-hidden="true"><use href="#i-lock"/></svg>
+                        Acessar área do cliente
+                    </a>
                 </div>
-                <div class="about-text">
+
+                <div class="portal-preview" aria-hidden="true" data-reveal>
+                    <div class="mock">
+                        <div class="mock-bar">
+                            <span class="mock-dots"><i></i><i></i><i></i></span>
+                            <span class="mock-url"><svg class="icon"><use href="#i-lock"/></svg>Área do cliente</span>
+                        </div>
+                        <div class="pp-body">
+                            <div class="pp-top">
+                                <div class="pp-search"><svg class="icon"><use href="#i-search"/></svg>Pesquisar documentos</div>
+                                <span class="pp-chip pp-chip-on">Todos</span>
+                                <span class="pp-chip">Balanços</span>
+                                <span class="pp-chip">DRE</span>
+                            </div>
+                            <div class="pp-row pp-row-head"><span>Documento</span><span>Período</span><span></span></div>
+                            <div class="pp-row"><span><i class="file-ico">PDF</i>Balanço patrimonial</span><span>2025</span><span class="pp-dl"><svg class="icon"><use href="#i-download"/></svg></span></div>
+                            <div class="pp-row"><span><i class="file-ico">PDF</i>DRE anual</span><span>2025</span><span class="pp-dl"><svg class="icon"><use href="#i-download"/></svg></span></div>
+                            <div class="pp-row"><span><i class="file-ico">PDF</i>Balancete</span><span>09/2026</span><span class="pp-dl"><svg class="icon"><use href="#i-download"/></svg></span></div>
+                            <div class="pp-row"><span><i class="file-ico file-ico-alt">DOC</i>Alteração contratual</span><span>2026</span><span class="pp-dl"><svg class="icon"><use href="#i-download"/></svg></span></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ===================== Sobre ===================== -->
+        <section class="section" id="sobre">
+            <div class="container split split-about">
+                <figure class="about-photo" data-reveal>
+                    <img src="assets/img/equipe/contador-retrato.webp" alt="Contador responsável pela NRJ Contabilidade"
+                        width="512" height="640" loading="lazy">
+                    <figcaption class="about-badge">
+                        <span class="float-ico float-ico-ok"><svg class="icon" aria-hidden="true"><use href="#i-badge"/></svg></span>
+                        <span>
+                            <strong>Contador responsável</strong>
+                            <!-- DEMO: inserir o nome e o CRC reais do contador -->
+                            <small>CRC-SP 000000/O-0</small>
+                        </span>
+                    </figcaption>
+                </figure>
+
+                <div class="split-text" data-reveal>
                     <span class="eyebrow">Quem somos</span>
                     <h2>Contabilidade que pensa junto com você</h2>
-                    <p>Atuamos auxiliando empresas na sua constituição, administração, consultoria e, quando
-                        necessário, no encerramento. Nossa equipe é formada por profissionais gabaritados nas áreas
-                        contábil, fiscal, trabalhista e de assessoria.</p>
-                    <p>Fazemos um diagnóstico das atividades e rotinas da sua empresa em busca de melhor performance,
-                        usando os recursos legais disponíveis para reduzir a carga tributária.</p>
-                    <a href="#contato" class="btn btn-primary">Fale com a nossa equipe</a>
+                    <p>Atuamos ao lado das empresas desde a constituição, passando pela rotina contábil e pelas
+                        alterações societárias até, quando necessário, o encerramento.</p>
+                    <p>Nosso trabalho é transformar os números do seu negócio em informação clara: demonstrações
+                        organizadas, entregues no prazo e explicadas de um jeito que ajuda a decidir.</p>
+
+                    <div class="values">
+                        <div class="value">
+                            <svg class="icon" aria-hidden="true"><use href="#i-target"/></svg>
+                            <div><strong>Missão</strong><span>Oferecer uma contabilidade consultiva, próxima e
+                                    transparente.</span></div>
+                        </div>
+                        <div class="value">
+                            <svg class="icon" aria-hidden="true"><use href="#i-eye"/></svg>
+                            <div><strong>Visão</strong><span>Ser referência em contabilidade consultiva em São
+                                    Paulo.</span></div>
+                        </div>
+                        <div class="value">
+                            <svg class="icon" aria-hidden="true"><use href="#i-heart"/></svg>
+                            <div><strong>Valores</strong><span>Ética, responsabilidade, transparência e
+                                    atualização constante.</span></div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <!-- DEMO: números ilustrativos para apresentação. Substituir pelos reais antes de publicar. -->
-            <div class="container stats" data-demo>
-                <span class="demo-tag" title="Substituir pelos dados reais do escritório">Dados ilustrativos</span>
-                <div class="stat"><strong data-contar="15">+15</strong><span>anos de experiência</span></div>
-                <div class="stat"><strong data-contar="300">+300</strong><span>empresas atendidas</span></div>
-                <div class="stat"><strong data-contar="120">+120</strong><span>empresas abertas</span></div>
-                <div class="stat"><strong>4,9 ★</strong><span>avaliação no Google</span></div>
-            </div>
-
-            <div class="container values">
-                <div class="value">
-                    <img src="assets/img/Objetivo/missao.png" alt="" loading="lazy">
-                    <h3>Missão</h3>
-                    <p>Oferecer uma contabilidade consultiva, próxima e transparente, que gere segurança e economia
-                        para nossos clientes.</p>
-                </div>
-                <div class="value">
-                    <img src="assets/img/Objetivo/visao.png" alt="" loading="lazy">
-                    <h3>Visão</h3>
-                    <p>Ser referência em contabilidade consultiva em São Paulo, reconhecida pelo atendimento e pelos
-                        resultados que entregamos.</p>
-                </div>
-                <div class="value">
-                    <img src="assets/img/Objetivo/valores.png" alt="" loading="lazy">
-                    <h3>Valores</h3>
-                    <p>Ética, responsabilidade, transparência, atualização constante e compromisso com o crescimento
-                        de cada cliente.</p>
-                </div>
-            </div>
-
-            <!-- DEMO: equipe ilustrativa. Trocar nomes, cargos, CRC e usar fotos reais (assets/img/equipe/). -->
-            <div class="container team" data-demo>
-                <div class="section-head">
-                    <span class="eyebrow">Nossa equipe</span>
-                    <h2>Quem cuida da sua empresa</h2>
-                    <span class="demo-tag" title="Substituir pelos dados reais do escritório">Dados ilustrativos</span>
-                </div>
-                <div class="team-grid">
-                    <div class="member">
-                        <div class="avatar" aria-hidden="true">RA</div>
-                        <h3>Ricardo Almeida</h3>
-                        <span class="cargo">Contador responsável</span>
-                        <small>CRC-SP 000000/O-0</small>
-                    </div>
-                    <div class="member">
-                        <div class="avatar" aria-hidden="true">JS</div>
-                        <h3>Juliana Souza</h3>
-                        <span class="cargo">Fiscal e tributário</span>
-                        <small>CRC-SP 000000/O-0</small>
-                    </div>
-                    <div class="member">
-                        <div class="avatar" aria-hidden="true">MC</div>
-                        <h3>Marcos Costa</h3>
-                        <span class="cargo">Departamento pessoal</span>
-                        <small>Especialista em folha e eSocial</small>
-                    </div>
+            <div class="container">
+                <div class="stats" data-reveal>
+                    <span class="demo-tag stats-tag">Dados ilustrativos</span>
+                    <div class="stat"><strong data-count="15" data-prefix="+">+15</strong><span>anos de experiência</span></div>
+                    <div class="stat"><strong data-count="300" data-prefix="+">+300</strong><span>empresas atendidas</span></div>
+                    <div class="stat"><strong data-count="120" data-prefix="+">+120</strong><span>empresas abertas</span></div>
+                    <div class="stat"><strong>4,9<small>/5</small></strong><span>avaliação no Google</span></div>
                 </div>
             </div>
         </section>
 
-        <!-- DEMO: depoimentos ilustrativos para apresentação.
-             NÃO publicar com estes textos: substituir por depoimentos reais (ou avaliações do Google) ou remover a seção. -->
-        <section class="section section-light" id="depoimentos" data-demo>
+        <!-- ===================== Depoimentos =====================
+             DEMO: depoimentos ilustrativos para apresentação.
+             NÃO publicar com estes textos: substituir por depoimentos reais (ou avaliações do Google) ou remover. -->
+        <section class="section section-subtle" id="depoimentos">
             <div class="container">
-                <div class="section-head">
+                <header class="section-head" data-reveal>
                     <span class="eyebrow">Depoimentos</span>
                     <h2>O que dizem nossos clientes</h2>
-                    <span class="demo-tag" title="Substituir pelos dados reais do escritório">Dados ilustrativos</span>
-                </div>
-                <div class="cards">
-                    <blockquote class="card testimonial">
-                        <div class="estrelas" aria-label="5 de 5 estrelas">★★★★★</div>
-                        <p>“Troquei de contador e não precisei me preocupar com nada. A equipe cuidou de toda a
-                            transição e hoje pago menos imposto do que antes.”</p>
-                        <cite><strong>Fernanda Lima</strong>Loja de roupas · Cliente desde 2021</cite>
-                    </blockquote>
-                    <blockquote class="card testimonial">
-                        <div class="estrelas" aria-label="5 de 5 estrelas">★★★★★</div>
-                        <p>“Abri minha empresa em poucos dias e com orientação em cada etapa. Atendimento rápido pelo
-                            WhatsApp sempre que preciso.”</p>
-                        <cite><strong>Carlos Mendes</strong>Consultoria em TI · Cliente desde 2022</cite>
-                    </blockquote>
-                    <blockquote class="card testimonial">
-                        <div class="estrelas" aria-label="5 de 5 estrelas">★★★★★</div>
-                        <p>“O planejamento tributário fez muita diferença no caixa da clínica. Contabilidade de verdade,
-                            que explica e acompanha de perto.”</p>
-                        <cite><strong>Dra. Patrícia Rocha</strong>Clínica odontológica · Cliente desde 2019</cite>
-                    </blockquote>
+                    <span class="demo-tag">Dados ilustrativos</span>
+                </header>
+
+                <div class="testimonials">
+                    <figure class="card testimonial" data-reveal>
+                        <div class="stars" aria-label="5 de 5 estrelas">★★★★★</div>
+                        <blockquote>“Troquei de contador e não precisei me preocupar com nada. A equipe cuidou de toda
+                            a transição e hoje entendo os números da minha empresa.”</blockquote>
+                        <figcaption><span class="avatar">FL</span><span><strong>Fernanda Lima</strong>Loja de
+                                roupas</span></figcaption>
+                    </figure>
+                    <figure class="card testimonial" data-reveal>
+                        <div class="stars" aria-label="5 de 5 estrelas">★★★★★</div>
+                        <blockquote>“Abri minha empresa em poucos dias, com orientação em cada etapa. Atendimento
+                            rápido pelo WhatsApp sempre que preciso.”</blockquote>
+                        <figcaption><span class="avatar">CM</span><span><strong>Carlos Mendes</strong>Consultoria
+                                em TI</span></figcaption>
+                    </figure>
+                    <figure class="card testimonial" data-reveal>
+                        <div class="stars" aria-label="5 de 5 estrelas">★★★★★</div>
+                        <blockquote>“Recebo balancete e DRE organizados no portal. Quando o banco pede, eu mesma baixo
+                            e envio em minutos.”</blockquote>
+                        <figcaption><span class="avatar">PR</span><span><strong>Patrícia Rocha</strong>Clínica
+                                odontológica</span></figcaption>
+                    </figure>
                 </div>
             </div>
         </section>
 
-        <!-- FAQ -->
+        <!-- ===================== FAQ ===================== -->
         <section class="section" id="faq">
             <div class="container faq">
-                <div class="faq-head">
+                <header class="faq-head" data-reveal>
                     <span class="eyebrow">Perguntas frequentes</span>
                     <h2>Respostas para as principais dúvidas</h2>
-                    <p>Nosso objetivo é esclarecer suas dúvidas de forma simples e transparente. Não encontrou a
-                        sua? <a href="#contato">Fale com a gente</a>.</p>
-                </div>
-                <div class="faq-list">
-                    <details>
-                        <summary>Posso contratar sendo Microempreendedor Individual (MEI)?</summary>
-                        <p>Sim. Ajudamos a manter o MEI em dia, com lembretes das obrigações, emissão de DAS e
-                            orientação para emitir notas fiscais de forma simples.</p>
-                    </details>
-                    <details>
-                        <summary>Terei mais trabalho ao trocar de contador?</summary>
-                        <p>Não. Nós mesmos entramos em contato com o contador anterior e cuidamos de toda a
-                            transição. Você só precisa assinar a autorização.</p>
-                    </details>
-                    <details>
-                        <summary>Quero passar de MEI para ME. Vocês fazem esse serviço?</summary>
-                        <p>Sim, realizamos o desenquadramento do MEI para ME e orientamos sobre o melhor regime
-                            tributário para o novo porte da empresa.</p>
-                    </details>
-                    <details>
-                        <summary>Tenho funcionários. Vocês fazem a folha de pagamento?</summary>
-                        <p>Sim. Cuidamos da folha de funcionários CLT, pró-labore, férias, rescisões e eSocial. O
-                            valor varia conforme o número de colaboradores.</p>
-                    </details>
-                    <details>
-                        <summary>Quanto custa a mensalidade?</summary>
-                        <p>O valor depende do regime tributário, do faturamento e do número de funcionários. Peça uma
-                            proposta sem compromisso e respondemos rapidamente.</p>
-                    </details>
-                    <details>
-                        <summary>Atendem empresas fora de São Paulo?</summary>
-                        <p>Sim. Grande parte do atendimento é feita de forma digital, por WhatsApp, e-mail e
-                            videochamada.</p>
-                    </details>
+                    <p>Não encontrou a sua? <a href="#contato">Fale com a gente</a> ou chame no WhatsApp.</p>
+                </header>
+
+                <div class="accordion" data-accordion data-reveal>
+                    <div class="acc-item">
+                        <h3><button type="button" class="acc-trigger" aria-expanded="false">Terei trabalho para
+                                trocar de contador?<span class="acc-icon" aria-hidden="true"></span></button></h3>
+                        <div class="acc-panel" hidden>
+                            <p>Não. Nós entramos em contato com o contador anterior, recebemos os documentos e
+                                cuidamos de toda a transição. Você só precisa assinar a autorização.</p>
+                        </div>
+                    </div>
+                    <div class="acc-item">
+                        <h3><button type="button" class="acc-trigger" aria-expanded="false">Posso contratar sendo
+                                MEI?<span class="acc-icon" aria-hidden="true"></span></button></h3>
+                        <div class="acc-panel" hidden>
+                            <p>Sim. Orientamos o MEI para manter a empresa regular e acompanhamos o crescimento
+                                para o momento certo de migrar para ME.</p>
+                        </div>
+                    </div>
+                    <div class="acc-item">
+                        <h3><button type="button" class="acc-trigger" aria-expanded="false">Vocês fazem o
+                                desenquadramento de MEI para ME?<span class="acc-icon" aria-hidden="true"></span></button></h3>
+                        <div class="acc-panel" hidden>
+                            <p>Sim. Realizamos o desenquadramento e a transformação do MEI em ME, com toda a
+                                parte de registro e documentação.</p>
+                        </div>
+                    </div>
+                    <div class="acc-item">
+                        <h3><button type="button" class="acc-trigger" aria-expanded="false">Como acesso os
+                                documentos da minha empresa?<span class="acc-icon" aria-hidden="true"></span></button></h3>
+                        <div class="acc-panel" hidden>
+                            <p>Pela <a href="portal/login.html">Área do cliente</a>. Você recebe um convite por
+                                e-mail, cria sua senha e passa a visualizar e baixar balanços, DRE, balancetes e
+                                outros documentos da sua empresa.</p>
+                        </div>
+                    </div>
+                    <div class="acc-item">
+                        <h3><button type="button" class="acc-trigger" aria-expanded="false">Quanto custa a
+                                mensalidade?<span class="acc-icon" aria-hidden="true"></span></button></h3>
+                        <div class="acc-panel" hidden>
+                            <p>O valor depende do porte da empresa e do volume de movimentação. Peça uma proposta
+                                sem compromisso e respondemos rapidamente.</p>
+                        </div>
+                    </div>
+                    <div class="acc-item">
+                        <h3><button type="button" class="acc-trigger" aria-expanded="false">Atendem empresas fora
+                                de São Paulo?<span class="acc-icon" aria-hidden="true"></span></button></h3>
+                        <div class="acc-panel" hidden>
+                            <p>Sim. Grande parte do atendimento é digital, por WhatsApp, e-mail e videochamada, e
+                                os documentos ficam no portal do cliente.</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contato -->
-        <section class="section section-light" id="contato">
-            <div class="container contact">
-                <div class="contact-info">
-                    <span class="eyebrow">Entre em contato</span>
-                    <h2>Peça uma proposta sem compromisso</h2>
-                    <p>Preencha seus dados e nossa equipe retorna em breve. Se preferir, chame direto no WhatsApp.</p>
-                    <ul class="contact-list">
-                        <li>
-                            <svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-whats"/></svg>
-                            <a data-whats href="https://wa.me/5511985368674" target="_blank" rel="noopener">(11) 98536-8674</a>
-                        </li>
-                        <li>
-                            <svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-mail"/></svg>
-                            <a href="mailto:gabrielmk301@gmail.com">gabrielmk301@gmail.com</a>
-                        </li>
-                        <li>
-                            <svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-pin"/></svg>
-                            <span>Rua Pereira Estéfano, Vila da Saúde<br>São Paulo - SP, 04144-070</span>
-                        </li>
-                        <li>
-                            <svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-clock"/></svg>
-                            <span>Segunda a sexta, das 8h às 18h</span>
-                        </li>
-                    </ul>
+        <!-- ===================== Contato ===================== -->
+        <section class="section section-subtle" id="contato">
+            <div class="container">
+                <div class="cta-band" data-reveal>
+                    <div class="cta-band-bg" aria-hidden="true"></div>
+                    <div>
+                        <h2>Vamos organizar a contabilidade da sua empresa?</h2>
+                        <p>Converse com um contador agora mesmo ou envie seus dados para receber uma proposta.</p>
+                    </div>
+                    <a href="https://wa.me/5511985368674" class="btn btn-whats btn-lg" data-whats>
+                        <svg class="icon" aria-hidden="true"><use href="#i-whats"/></svg>
+                        Chamar no WhatsApp
+                    </a>
                 </div>
 
-                <form class="form" action="https://api.staticforms.xyz/submit" method="post">
-                    <div class="field">
-                        <label for="nome">Nome</label>
-                        <input type="text" id="nome" name="name" placeholder="Seu nome" autocomplete="name" required>
-                    </div>
-                    <div class="field-row">
-                        <div class="field">
-                            <label for="email">E-mail</label>
-                            <input type="email" id="email" name="email" placeholder="voce@empresa.com.br"
-                                autocomplete="email" required>
-                        </div>
-                        <div class="field">
-                            <label for="telefone">Telefone / WhatsApp</label>
-                            <input type="tel" id="telefone" name="phone" placeholder="(11) 90000-0000"
-                                autocomplete="tel" required>
-                        </div>
-                    </div>
-                    <div class="field">
-                        <label for="servico">Como podemos ajudar?</label>
-                        <select id="servico" name="$servico">
-                            <option>Abrir uma empresa</option>
-                            <option>Trocar de contador</option>
-                            <option>MEI / Desenquadramento para ME</option>
-                            <option>Planejamento tributário</option>
-                            <option>Folha de pagamento</option>
-                            <option>Outro assunto</option>
-                        </select>
-                    </div>
-                    <div class="field">
-                        <label for="mensagem">Mensagem (opcional)</label>
-                        <textarea id="mensagem" name="message" rows="4"
-                            placeholder="Conte um pouco sobre sua empresa"></textarea>
+                <div class="contact">
+                    <div class="contact-info" data-reveal>
+                        <span class="eyebrow">Contato</span>
+                        <h2>Peça uma proposta sem compromisso</h2>
+                        <p>Preencha o formulário e nossa equipe retorna em breve.</p>
+                        <ul class="contact-list" role="list">
+                            <li>
+                                <span class="icon-box"><svg aria-hidden="true"><use href="#i-whats"/></svg></span>
+                                <span><small>WhatsApp</small><a href="https://wa.me/5511985368674" data-whats>(11) 98536-8674</a></span>
+                            </li>
+                            <li>
+                                <span class="icon-box"><svg aria-hidden="true"><use href="#i-mail"/></svg></span>
+                                <span><small>E-mail</small><a href="mailto:gabrielmk301@gmail.com">gabrielmk301@gmail.com</a></span>
+                            </li>
+                            <li>
+                                <span class="icon-box"><svg aria-hidden="true"><use href="#i-pin"/></svg></span>
+                                <span><small>Endereço</small>Rua Pereira Estéfano, Vila da Saúde · São Paulo - SP,
+                                    04144-070</span>
+                            </li>
+                            <li>
+                                <span class="icon-box"><svg aria-hidden="true"><use href="#i-clock"/></svg></span>
+                                <span><small>Horário</small>Segunda a sexta, das 8h às 18h</span>
+                            </li>
+                        </ul>
                     </div>
 
-                    <!-- Proteção contra spam do StaticForms (campo escondido) -->
-                    <input type="text" name="honeypot" class="hidden" tabindex="-1" autocomplete="off">
-                    <input type="hidden" name="accessKey" value="b300ce7d-565b-430d-b09f-6f9b3aa66312">
-                    <input type="hidden" name="subject" value="Novo contato pelo site - NRJ Contabilidade">
-                    <input type="hidden" name="redirectTo" value="https://morenosdev.github.io/NALDO_Contabilidade/obrigado.html">
+                    <form class="card contact-form" action="https://api.staticforms.xyz/submit" method="post"
+                        novalidate data-contact-form data-reveal>
+                        <div class="field">
+                            <label class="label" for="nome">Nome</label>
+                            <input class="input" type="text" id="nome" name="name" placeholder="Seu nome"
+                                autocomplete="name" required minlength="2">
+                            <span class="field-error" aria-live="polite"></span>
+                        </div>
+                        <div class="field-row">
+                            <div class="field">
+                                <label class="label" for="email">E-mail</label>
+                                <input class="input" type="email" id="email" name="email"
+                                    placeholder="voce@empresa.com.br" autocomplete="email" required>
+                                <span class="field-error" aria-live="polite"></span>
+                            </div>
+                            <div class="field">
+                                <label class="label" for="telefone">Telefone / WhatsApp</label>
+                                <input class="input" type="tel" id="telefone" name="phone" placeholder="(11) 90000-0000"
+                                    autocomplete="tel" inputmode="tel" required data-phone>
+                                <span class="field-error" aria-live="polite"></span>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label" for="servico">Como podemos ajudar?</label>
+                            <select class="select" id="servico" name="$servico">
+                                <option>Contabilidade da minha empresa</option>
+                                <option>Abrir uma empresa</option>
+                                <option>Trocar de contador</option>
+                                <option>Alteração ou encerramento de empresa</option>
+                                <option>MEI / Desenquadramento para ME</option>
+                                <option>Outro assunto</option>
+                            </select>
+                        </div>
+                        <div class="field">
+                            <label class="label" for="mensagem">Mensagem <span class="opcional">(opcional)</span></label>
+                            <textarea class="textarea" id="mensagem" name="message" rows="4"
+                                placeholder="Conte um pouco sobre sua empresa"></textarea>
+                        </div>
 
-                    <button type="submit" class="btn btn-primary btn-block">Enviar mensagem</button>
-                    <small class="form-note">Seus dados são usados apenas para retornarmos o contato. Veja nossa <a href="politica-de-privacidade.html">Política de Privacidade</a>.</small>
-                </form>
+                        <!-- Proteção contra spam do StaticForms (campo escondido) -->
+                        <input type="text" name="honeypot" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true">
+                        <input type="hidden" name="accessKey" value="b300ce7d-565b-430d-b09f-6f9b3aa66312">
+                        <input type="hidden" name="subject" value="Novo contato pelo site - NRJ Contabilidade">
+                        <input type="hidden" name="redirectTo" value="https://morenosdev.github.io/NALDO_Contabilidade/obrigado.html">
+
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">
+                            Enviar mensagem
+                            <svg class="icon arrow" aria-hidden="true"><use href="#i-send"/></svg>
+                        </button>
+                        <p class="form-note">Seus dados são usados apenas para retornarmos o contato. Veja nossa
+                            <a href="politica-de-privacidade.html">Política de Privacidade</a>.</p>
+                    </form>
+                </div>
             </div>
         </section>
     </main>
 
-    <!-- Rodapé -->
-    <footer class="footer">
+    <!-- ===================== Rodapé ===================== -->
+    <footer class="site-footer">
         <div class="container footer-grid">
-            <div>
-                <img src="assets/img/Objetivo/logo2.webp" alt="NRJ Contabilidade" class="footer-logo" loading="lazy" width="481" height="101">
-                <p>Contabilidade consultiva para empresas que querem crescer com segurança.</p>
+            <div class="footer-brand">
+                <a href="#inicio" class="brand brand-light" aria-label="NRJ Contabilidade Consultiva — início"><img src="assets/img/marca/simbolo-nrj-branco.webp" alt="" width="722" height="343" loading="lazy"><span class="brand-text">Contabilidade<br>Consultiva</span></a>
+                <p>Contabilidade consultiva para empresas que querem crescer com organização e segurança.</p>
                 <div class="social">
                     <!-- TODO: colocar os links reais das redes sociais -->
-                    <a href="#" aria-label="Instagram"><img src="assets/img/Servicos/instagram2.png" alt=""></a>
-                    <a href="#" aria-label="Facebook"><img src="assets/img/Servicos/facebook.png" alt=""></a>
-                    <a href="#" aria-label="LinkedIn"><img src="assets/img/Servicos/linkedin.png" alt=""></a>
+                    <a href="#" aria-label="Instagram"><svg class="icon" aria-hidden="true"><use href="#i-instagram"/></svg></a>
+                    <a href="#" aria-label="Facebook"><svg class="icon" aria-hidden="true"><use href="#i-facebook"/></svg></a>
+                    <a href="#" aria-label="LinkedIn"><svg class="icon" aria-hidden="true"><use href="#i-linkedin"/></svg></a>
                 </div>
+            </div>
+            <div>
+                <h3>Navegação</h3>
+                <ul role="list">
+                    <li><a href="#servicos">Serviços</a></li>
+                    <li><a href="#como-funciona">Como funciona</a></li>
+                    <li><a href="#sobre">Sobre</a></li>
+                    <li><a href="#faq">Dúvidas</a></li>
+                    <li><a href="portal/login.html">Área do cliente</a></li>
+                </ul>
             </div>
             <div>
                 <h3>Contato</h3>
@@ -460,128 +722,152 @@
                 </address>
             </div>
             <div>
-                <h3>Serviços</h3>
-                <ul>
-                    <li><a href="#servicos">Abertura de empresa</a></li>
-                    <li><a href="#servicos">Contábil e fiscal</a></li>
-                    <li><a href="#servicos">Folha de pagamento</a></li>
-                    <li><a href="#servicos">Planejamento tributário</a></li>
-                </ul>
-            </div>
-            <div>
                 <h3>Links úteis</h3>
-                <ul>
-                    <li><a href="https://www8.receita.fazenda.gov.br/simplesnacional/" target="_blank" rel="noopener">Portal do Simples Nacional</a></li>
+                <ul role="list">
                     <li><a href="https://www.gov.br/empresas-e-negocios/pt-br/empreendedor" target="_blank" rel="noopener">Portal do Empreendedor (MEI)</a></li>
+                    <li><a href="https://solucoes.receita.fazenda.gov.br/servicos/cnpjreva/cnpjreva_solicitacao.asp" target="_blank" rel="noopener">Consulta de CNPJ</a></li>
+                    <li><a href="https://www.jucesponline.sp.gov.br/" target="_blank" rel="noopener">Junta Comercial (JUCESP)</a></li>
                     <li><a href="https://solucoes.receita.fazenda.gov.br/servicos/certidaointernet/pj/emitir" target="_blank" rel="noopener">Certidão negativa federal</a></li>
-                    <li><a href="https://www.gov.br/receitafederal/pt-br/assuntos/agenda-tributaria" target="_blank" rel="noopener">Agenda tributária</a></li>
                 </ul>
             </div>
         </div>
-        <div class="container copyright">
+        <div class="container footer-bottom">
             <!-- DEMO: trocar CNPJ e CRC pelos dados reais -->
-            NRJ Contabilidade Consultiva · CNPJ 00.000.000/0001-00 · CRC-SP 000000/O-0<br>
-            © <span id="ano">2026</span> Todos os direitos reservados. ·
-            <a href="politica-de-privacidade.html">Política de Privacidade</a>
+            <span>NRJ Contabilidade Consultiva · CNPJ 00.000.000/0001-00 · CRC-SP 000000/O-0</span>
+            <span>© <span data-year>2026</span> Todos os direitos reservados · <a href="politica-de-privacidade.html">Política de Privacidade</a></span>
         </div>
     </footer>
 
-    <!-- Chatbot (fluxo de perguntas em assets/app/chatbot.js) -->
-    <div class="chat" id="chat">
-        <section class="chat-janela" id="chat-janela" aria-label="Assistente virtual" hidden>
-            <header class="chat-topo">
-                <img src="assets/img/favicon/android-chrome-192x192.png" alt="" class="chat-avatar">
+    <!-- ===================== Atendimento flutuante ===================== -->
+    <a class="fab fab-whats" href="https://wa.me/5511985368674" aria-label="Conversar no WhatsApp" data-whats>
+        <svg aria-hidden="true"><use href="#i-whats"/></svg>
+    </a>
+
+    <div class="chat" data-chat>
+        <section class="chat-window" id="chat-window" aria-label="Assistente virtual" hidden>
+            <header class="chat-head">
+                <img src="assets/img/equipe/contador-avatar.webp" alt="" width="40" height="40">
                 <div>
                     <strong>Assistente NRJ</strong>
-                    <span>Respondemos em horário comercial</span>
+                    <span><i class="online-dot"></i>Respondemos em horário comercial</span>
                 </div>
-                <button type="button" class="chat-fechar" id="chat-fechar" aria-label="Fechar chat">&times;</button>
+                <button type="button" class="chat-close" aria-label="Fechar chat" data-chat-close>
+                    <svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>
+                </button>
             </header>
-            <div class="chat-mensagens" id="chat-mensagens" aria-live="polite"></div>
-            <div class="chat-opcoes" id="chat-opcoes"></div>
-            <form class="chat-entrada" id="chat-entrada" hidden>
-                <input type="text" id="chat-texto" autocomplete="off" aria-label="Sua resposta">
-                <button type="submit" aria-label="Enviar">
-                    <svg aria-hidden="true" viewBox="0 0 24 24"><path fill="currentColor" d="M3 20.5v-6l8-2.5-8-2.5v-6L22 12Z"/></svg>
+            <div class="chat-messages" aria-live="polite" data-chat-messages></div>
+            <div class="chat-options" data-chat-options></div>
+            <form class="chat-input" hidden data-chat-form>
+                <input class="input" type="text" autocomplete="off" aria-label="Sua resposta" data-chat-text>
+                <button type="submit" class="btn btn-primary btn-icon" aria-label="Enviar">
+                    <svg class="icon" aria-hidden="true"><use href="#i-send"/></svg>
                 </button>
             </form>
         </section>
-        <button type="button" class="chat-botao" id="chat-botao" aria-controls="chat-janela" aria-expanded="false"
-            aria-label="Abrir assistente virtual">
-            <svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-chat"/></svg>
-            <span class="chat-balao" id="chat-balao">Posso ajudar?</span>
+        <button type="button" class="fab fab-chat" aria-controls="chat-window" aria-expanded="false"
+            aria-label="Abrir assistente virtual" data-chat-toggle>
+            <svg class="fab-open" aria-hidden="true"><use href="#i-chat"/></svg>
+            <svg class="fab-close" aria-hidden="true"><use href="#i-x"/></svg>
         </button>
+        <span class="chat-hint" data-chat-hint>Posso ajudar?</span>
     </div>
 
-    <!-- Modal: formulário rápido antes de abrir o WhatsApp -->
-    <dialog class="modal" id="modal-whats" aria-labelledby="modal-titulo">
-        <form class="modal-box" id="form-whats" method="dialog">
-            <button type="button" class="modal-fechar" data-fechar aria-label="Fechar">&times;</button>
-            <div class="modal-topo">
-                <svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-whats"/></svg>
+    <!-- Formulário rápido antes de abrir o WhatsApp -->
+    <dialog class="modal" id="modal-whats" aria-labelledby="modal-whats-title">
+        <form class="modal-body" data-whats-form novalidate>
+            <button type="button" class="modal-close" aria-label="Fechar" data-modal-close>
+                <svg class="icon" aria-hidden="true"><use href="#i-x"/></svg>
+            </button>
+            <div class="modal-head">
+                <span class="icon-box icon-box-whats"><svg aria-hidden="true"><use href="#i-whats"/></svg></span>
                 <div>
-                    <h2 id="modal-titulo">Fale com um contador</h2>
+                    <h2 id="modal-whats-title">Fale com um contador</h2>
                     <p>Preencha rapidinho e continue a conversa no WhatsApp.</p>
                 </div>
             </div>
             <div class="field">
-                <label for="w-nome">Nome</label>
-                <input type="text" id="w-nome" name="name" placeholder="Seu nome" autocomplete="name" required>
+                <label class="label" for="w-nome">Nome</label>
+                <input class="input" type="text" id="w-nome" name="name" placeholder="Seu nome" autocomplete="name"
+                    required minlength="2">
+                <span class="field-error" aria-live="polite"></span>
             </div>
             <div class="field">
-                <label for="w-telefone">Telefone / WhatsApp</label>
-                <input type="tel" id="w-telefone" name="phone" placeholder="(11) 90000-0000" autocomplete="tel"
-                    inputmode="tel" required>
+                <label class="label" for="w-telefone">Telefone / WhatsApp</label>
+                <input class="input" type="tel" id="w-telefone" name="phone" placeholder="(11) 90000-0000"
+                    autocomplete="tel" inputmode="tel" required data-phone>
+                <span class="field-error" aria-live="polite"></span>
             </div>
             <div class="field">
-                <label for="w-email">E-mail (opcional)</label>
-                <input type="email" id="w-email" name="email" placeholder="voce@empresa.com.br" autocomplete="email">
+                <label class="label" for="w-email">E-mail <span class="opcional">(opcional)</span></label>
+                <input class="input" type="email" id="w-email" name="email" placeholder="voce@empresa.com.br"
+                    autocomplete="email">
+                <span class="field-error" aria-live="polite"></span>
             </div>
             <div class="field">
-                <label for="w-servico">Assunto</label>
-                <select id="w-servico" name="servico">
+                <label class="label" for="w-servico">Assunto</label>
+                <select class="select" id="w-servico" name="servico">
+                    <option>Contabilidade da minha empresa</option>
                     <option>Abrir uma empresa</option>
                     <option>Trocar de contador</option>
+                    <option>Alteração ou encerramento de empresa</option>
                     <option>MEI / Desenquadramento para ME</option>
-                    <option>Planejamento tributário</option>
-                    <option>Folha de pagamento</option>
                     <option>Outro assunto</option>
                 </select>
             </div>
-            <input type="text" name="honeypot" class="hidden" tabindex="-1" autocomplete="off">
-            <button type="submit" class="btn btn-whats btn-block">
-                <svg aria-hidden="true" viewBox="0 0 24 24" width="20" height="20"><use href="#i-whats"/></svg>
+            <input type="text" name="honeypot" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true">
+            <button type="submit" class="btn btn-whats btn-lg btn-block">
+                <svg class="icon" aria-hidden="true"><use href="#i-whats"/></svg>
                 Continuar no WhatsApp
             </button>
-            <small class="form-note">Ao continuar, você concorda com nossa
-                <a href="politica-de-privacidade.html" target="_blank">Política de Privacidade</a>.</small>
+            <p class="form-note">Ao continuar, você concorda com nossa
+                <a href="politica-de-privacidade.html" target="_blank">Política de Privacidade</a>.</p>
         </form>
     </dialog>
 
-    <!-- Botão flutuante do WhatsApp -->
-    <a class="whats-float" data-whats href="https://wa.me/5511985368674?text=Ol%C3%A1!%20Vim%20pelo%20site%20e%20gostaria%20de%20falar%20com%20um%20contador."
-        target="_blank" rel="noopener" aria-label="Conversar no WhatsApp">
-        <svg aria-hidden="true" viewBox="0 0 24 24"><use href="#i-whats"/></svg>
-    </a>
+    <div class="toasts" aria-live="polite" data-toasts></div>
 
-    <!-- Ícones SVG -->
+    <!-- ===================== Ícones (SVG sprite) ===================== -->
     <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
-        <symbol id="i-whats" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24s8.23 3.7 8.23 8.24-3.69 8.24-8.22 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43s.17-.25.25-.41c.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31s-.86.85-.86 2.07.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18s-.22-.16-.47-.28Z"/></symbol>
-        <symbol id="i-shield" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m9 12 2 2 4-4"/></symbol>
-        <symbol id="i-chat" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2Z"/></symbol>
-        <symbol id="i-chart" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M3 3v18h18M7 15l4-4 3 3 5-6"/></symbol>
-        <symbol id="i-clock" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M12 7v5l3 2"/></symbol>
-        <symbol id="i-rocket" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 15c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.8.7-2.1-.1-2.9a2.2 2.2 0 0 0-2.9-.1ZM12 15l-3-3a22 22 0 0 1 2-3.9A12.9 12.9 0 0 1 22 2c0 2.7-.8 7.5-6 11a22.4 22.4 0 0 1-4 2Z"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M9 12H4s.6-3 2-4c1.6-1.1 5 0 5 0M12 15v5s3-.6 4-2c1.1-1.6 0-5 0-5"/></symbol>
-        <symbol id="i-calc" viewBox="0 0 24 24"><rect x="4" y="2" width="16" height="20" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" d="M8 6h8M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15v4M8 19h.01M12 19h.01"/></symbol>
-        <symbol id="i-doc" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M14 2v6h6M8 13h8M8 17h5"/></symbol>
-        <symbol id="i-users" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2M22 21v-2a4 4 0 0 0-3-3.9M16 3.1a4 4 0 0 1 0 7.8"/><circle cx="9" cy="7" r="4" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
-        <symbol id="i-swap" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M17 3l4 4-4 4M3 7h18M7 21l-4-4 4-4M21 17H3"/></symbol>
-        <symbol id="i-mail" viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2" fill="none" stroke="currentColor" stroke-width="2"/><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="m22 6-10 7L2 6"/></symbol>
-        <symbol id="i-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3" fill="none" stroke="currentColor" stroke-width="2"/></symbol>
+        <defs>
+            <symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+            <symbol id="i-whats" viewBox="0 0 24 24"><path fill="currentColor" d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91S17.5 2 12.04 2Zm0 18.15c-1.48 0-2.93-.4-4.2-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.24 8.24-8.24s8.23 3.7 8.23 8.24-3.69 8.24-8.22 8.24Zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.17.25-.64.81-.78.97-.14.17-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.51.11-.11.25-.29.37-.43s.17-.25.25-.41c.08-.17.04-.31-.02-.43s-.56-1.34-.76-1.84c-.2-.48-.41-.42-.56-.43h-.48c-.17 0-.43.06-.66.31s-.86.85-.86 2.07.89 2.4 1.01 2.56c.12.17 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18s-.22-.16-.47-.28Z"/></symbol>
+            <symbol id="i-lock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="11" width="16" height="10" rx="2"/><path d="M8 11V7a4 4 0 0 1 8 0v4"/></symbol>
+            <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
+            <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/><path d="m9 12 2 2 4-4"/></symbol>
+            <symbol id="i-badge" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="6"/><path d="m8.5 13.8-1.5 8.2 5-3 5 3-1.5-8.2"/></symbol>
+            <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-4.9A8 8 0 1 1 21 12Z"/><path d="M8.5 12h.01M12 12h.01M15.5 12h.01"/></symbol>
+            <symbol id="i-folder" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><path d="M3 10h18"/></symbol>
+            <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+            <symbol id="i-chart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 16v-4M12 16V8M17 16v-7"/></symbol>
+            <symbol id="i-rocket" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 15c-1.5 1.3-2 5-2 5s3.7-.5 5-2c.7-.8.7-2.1-.1-2.9a2.2 2.2 0 0 0-2.9-.1Z"/><path d="m12 15-3-3a22 22 0 0 1 2-3.9A12.9 12.9 0 0 1 22 2c0 2.7-.8 7.5-6 11a22.4 22.4 0 0 1-4 2Z"/><path d="M9 12H4s.6-3 2-4c1.6-1.1 5 0 5 0M12 15v5s3-.6 4-2c1.1-1.6 0-5 0-5"/></symbol>
+            <symbol id="i-building" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="2" width="16" height="20" rx="2"/><path d="M9 22v-4h6v4M8 6h.01M12 6h.01M16 6h.01M8 10h.01M12 10h.01M16 10h.01M8 14h.01M12 14h.01M16 14h.01"/></symbol>
+            <symbol id="i-trending" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 7-8.5 8.5-5-5L2 17"/><path d="M16 7h6v6"/></symbol>
+            <symbol id="i-swap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m17 3 4 4-4 4M3 7h18M7 21l-4-4 4-4M21 17H3"/></symbol>
+            <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></symbol>
+            <symbol id="i-eye" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 12s3.6-7 10-7 10 7 10 7-3.6 7-10 7S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></symbol>
+            <symbol id="i-target" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1"/></symbol>
+            <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 14c1.5-1.5 3-3.2 3-5.5A5.5 5.5 0 0 0 12 5.5 5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4 3 5.5l7 7Z"/></symbol>
+            <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v12M7 10l5 5 5-5M5 21h14"/></symbol>
+            <symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></symbol>
+            <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></symbol>
+            <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></symbol>
+            <symbol id="i-send" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2 11 13M22 2l-7 20-4-9-9-4Z"/></symbol>
+            <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18M6 6l12 12"/></symbol>
+            <symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4M12 16h.01"/></symbol>
+            <symbol id="i-instagram" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><path d="M17.5 6.5h.01"/></symbol>
+            <symbol id="i-facebook" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3Z"/></symbol>
+            <symbol id="i-linkedin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6ZM2 9h4v12H2Z"/><circle cx="4" cy="4" r="2"/></symbol>
+        </defs>
     </svg>
 
-    <script src="assets/app/app.js" defer></script>
-    <script src="assets/app/chatbot.js" defer></script>
+    <script src="assets/js/core.js" defer></script>
+    <script src="assets/js/header.js" defer></script>
+    <script src="assets/js/reveal.js" defer></script>
+    <script src="assets/js/interactions.js" defer></script>
+    <script src="assets/js/accordion.js" defer></script>
+    <script src="assets/js/forms.js" defer></script>
+    <script src="assets/js/whatsapp.js" defer></script>
+    <script src="assets/js/chatbot.js" defer></script>
 </body>
 
 </html>

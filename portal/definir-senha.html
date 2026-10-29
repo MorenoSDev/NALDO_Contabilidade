@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Definir senha | NRJ Contabilidade Consultiva</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="referrer" content="no-referrer">
+    <meta name="theme-color" content="#022f66">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/portal.css">
+    <link rel="icon" href="../assets/img/favicon/favicon.ico" type="image/x-icon">
+    <script type="importmap">
+        { "imports": { "@supabase/supabase-js": "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/+esm" } }
+    </script>
+</head>
+
+<body>
+    <div class="auth">
+        <aside class="auth-aside">
+            <a href="../index.html" class="brand brand-light brand-lg" aria-label="NRJ Contabilidade Consultiva — voltar ao site"><img src="../assets/img/marca/simbolo-nrj-branco.webp" alt="" width="722" height="343"><span class="brand-text">Contabilidade<br>Consultiva</span></a>
+            <div>
+                <h1>Crie uma senha forte para proteger seus documentos.</h1>
+                <p>Use pelo menos 8 caracteres, misturando letras, números e símbolos.</p>
+            </div>
+            <small>© NRJ Contabilidade Consultiva</small>
+        </aside>
+
+        <main class="auth-main">
+            <div class="auth-card">
+                <a href="../index.html" class="brand brand-lg auth-mobile-brand" aria-label="NRJ Contabilidade Consultiva — voltar ao site"><img src="../assets/img/marca/simbolo-nrj.webp" alt="" width="722" height="343"><span class="brand-text">Contabilidade<br>Consultiva</span></a>
+                <header>
+                    <h2>Definir nova senha</h2>
+                    <p data-intro>Validando o seu link de acesso...</p>
+                </header>
+                <div data-message></div>
+
+                <form class="auth-form" data-password-form novalidate hidden>
+                    <div class="field">
+                        <label class="label" for="new-password">Nova senha</label>
+                        <div class="input-group">
+                            <input class="input" id="new-password" name="password" type="password" autocomplete="new-password"
+                                minlength="8" required>
+                            <button type="button" class="input-action" data-toggle-password aria-controls="new-password"
+                                aria-label="Mostrar senha" aria-pressed="false">
+                                <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-eye"/></svg>
+                            </button>
+                        </div>
+                        <div class="strength" data-strength data-level="0" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+                        <span class="field-hint" data-strength-label>Mínimo de 8 caracteres.</span>
+                    </div>
+                    <div class="field">
+                        <label class="label" for="confirm-password">Confirmar senha</label>
+                        <input class="input" id="confirm-password" name="confirm" type="password" autocomplete="new-password" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-lg btn-block">Salvar senha</button>
+                </form>
+
+                <div class="auth-footer">
+                    <a href="login.html">Ir para o login</a>
+                    <a href="../index.html">Voltar ao site</a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="js/definir-senha.js"></script>
+</body>
+
+</html>

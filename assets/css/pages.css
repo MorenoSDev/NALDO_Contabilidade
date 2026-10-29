@@ -1,0 +1,108 @@
+/* =========================================================
+   Páginas simples: obrigado e política de privacidade
+   ========================================================= */
+
+.page-center {
+    position: relative;
+    display: grid;
+    place-items: center;
+    min-height: 100dvh;
+    padding: var(--space-6) var(--gutter);
+    overflow: hidden;
+    isolation: isolate;
+}
+
+.page-center .hero-bg {
+    position: fixed;
+}
+
+.thanks {
+    display: grid;
+    justify-items: center;
+    gap: var(--space-4);
+    width: min(520px, 100%);
+    padding: clamp(2rem, 6vw, 3.5rem);
+    text-align: center;
+    box-shadow: var(--shadow-lg);
+    animation: modal-in .6s var(--ease-out);
+}
+
+.thanks-check {
+    display: grid;
+    place-items: center;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    background: var(--success-50);
+    color: var(--success-500);
+    box-shadow: 0 0 0 8px rgba(18, 183, 106, .08);
+}
+
+.thanks-check svg {
+    width: 30px;
+    height: 30px;
+}
+
+.thanks h1 {
+    font-size: var(--fs-2xl);
+    letter-spacing: var(--tracking-tight);
+}
+
+.thanks p {
+    color: var(--text-soft);
+}
+
+.thanks-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: var(--space-3);
+    margin-top: var(--space-2);
+}
+
+.legal-header {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 1px solid var(--line);
+    background: rgba(255, 255, 255, .9);
+    backdrop-filter: blur(12px);
+}
+
+.legal-header-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 68px;
+}
+
+.legal {
+    max-width: 760px;
+    padding-block: var(--space-8) var(--space-9);
+}
+
+.legal h1 {
+    margin: var(--space-4) 0 var(--space-3);
+    font-size: var(--fs-2xl);
+    letter-spacing: var(--tracking-tight);
+}
+
+.legal-lead {
+    font-size: var(--fs-md);
+    color: var(--text-soft);
+}
+
+.legal h2 {
+    margin: var(--space-7) 0 var(--space-3);
+    font-size: var(--fs-lg);
+}
+
+.legal p {
+    margin-bottom: var(--space-3);
+    color: var(--text-soft);
+}
+
+.legal-updated {
+    margin-top: var(--space-7);
+    font-size: var(--fs-sm);
+}

@@ -1,0 +1,12 @@
+{
+  "name": "nrj-portal-rls-tests",
+  "private": true,
+  "type": "module",
+  "description": "Testa as regras de acesso (RLS) de supabase/schema.sql num Postgres embutido.",
+  "scripts": {
+    "test": "node rls.test.mjs"
+  },
+  "devDependencies": {
+    "@electric-sql/pglite": "0.2.17"
+  }
+}

@@ -1,6 +1,7 @@
 User-agent: *
 Allow: /
 Disallow: /obrigado.html
+Disallow: /portal/
 
 # Se usar domínio próprio, troque o endereço abaixo
 Sitemap: https://morenosdev.github.io/NALDO_Contabilidade/sitemap.xml

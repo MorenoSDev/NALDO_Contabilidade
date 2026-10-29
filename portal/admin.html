@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel do escritório | NRJ Contabilidade Consultiva</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/portal.css">
+    <link rel="icon" href="../assets/img/favicon/favicon.ico" type="image/x-icon">
+    <script type="importmap">
+        { "imports": { "@supabase/supabase-js": "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/+esm" } }
+    </script>
+</head>
+
+<body class="portal">
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <div class="page-loading" data-boot>
+        <div><span class="spinner"></span>Carregando o painel...</div>
+    </div>
+
+    <div class="app" data-app hidden>
+        <aside class="sidebar" id="sidebar" data-sidebar aria-label="Navegação do painel">
+            <div class="sidebar-brand">
+                <a href="admin.html" class="brand" aria-label="NRJ Contabilidade — Painel do escritório"><img src="../assets/img/marca/simbolo-nrj.webp" alt="" width="722" height="343"><span class="brand-text">Contabilidade<br>Consultiva</span></a>
+                <button type="button" class="icon-btn sidebar-close" data-sidebar-close aria-label="Fechar menu">
+                    <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-x"/></svg>
+                </button>
+            </div>
+
+            <p class="side-label">Escritório</p>
+            <nav class="side-nav" aria-label="Seções" data-nav>
+                <a href="#visao" class="side-link" data-route="visao"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-home"/></svg>Visão geral</a>
+                <a href="#documentos" class="side-link" data-route="documentos"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-files"/></svg>Documentos<span class="count" data-count="documentos"></span></a>
+                <a href="#clientes" class="side-link" data-route="clientes"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-users"/></svg>Clientes<span class="count" data-count="clientes"></span></a>
+                <a href="#empresas" class="side-link" data-route="empresas"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-building"/></svg>Empresas<span class="count" data-count="empresas"></span></a>
+                <a href="#categorias" class="side-link" data-route="categorias"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-tag"/></svg>Categorias</a>
+                <a href="#registros" class="side-link" data-route="registros"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-history"/></svg>Registros</a>
+            </nav>
+
+            <div class="sidebar-foot">
+                <div class="user-chip" data-user-chip>
+                    <span class="avatar-sm" data-user-initials></span>
+                    <div><strong data-user-name></strong><small data-user-email></small></div>
+                </div>
+                <button type="button" class="side-link" data-logout>
+                    <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-logout"/></svg>Sair da conta
+                </button>
+                <a href="../index.html" class="side-link">
+                    <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-arrow-left"/></svg>Voltar ao site
+                </a>
+            </div>
+        </aside>
+
+        <div class="app-main">
+            <header class="topbar">
+                <button type="button" class="icon-btn topbar-menu" data-sidebar-open aria-controls="sidebar"
+                    aria-expanded="false" aria-label="Abrir menu">
+                    <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-menu"/></svg>
+                </button>
+                <strong data-topbar-title>Painel do escritório</strong>
+                <div class="topbar-actions">
+                    <button type="button" class="btn btn-ghost btn-sm" data-reload aria-label="Atualizar dados">
+                        <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-refresh"/></svg>
+                        <span class="btn-label">Atualizar</span>
+                    </button>
+                    <button type="button" class="btn btn-primary btn-sm" data-new-document>
+                        <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-upload"/></svg>
+                        <span class="btn-label">Enviar documento</span>
+                    </button>
+                </div>
+            </header>
+
+            <main class="page" id="conteudo">
+                <div data-error></div>
+
+                <!-- Visão geral -->
+                <section class="admin-section" data-section="visao" aria-labelledby="t-visao">
+                    <div class="page-head">
+                        <div>
+                            <h1 id="t-visao" data-greeting>Visão geral</h1>
+                            <p>Resumo do portal e das últimas movimentações.</p>
+                        </div>
+                    </div>
+                    <div class="kpis" data-admin-kpis></div>
+                    <div class="two-col" style="margin-top:var(--space-5)">
+                        <div class="card panel">
+                            <div class="panel-head">
+                                <div><h2>Últimos documentos enviados</h2><p>Os arquivos publicados mais recentemente.</p></div>
+                                <a href="#documentos" class="btn btn-text btn-sm">Ver todos</a>
+                            </div>
+                            <div data-latest-docs></div>
+                        </div>
+                        <div class="card panel">
+                            <div class="panel-head">
+                                <div><h2>Atividade recente</h2><p>Operações administrativas registradas.</p></div>
+                                <a href="#registros" class="btn btn-text btn-sm">Ver registros</a>
+                            </div>
+                            <ul class="activity" role="list" data-latest-activity></ul>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Documentos -->
+                <section class="admin-section" data-section="documentos" aria-labelledby="t-docs" hidden>
+                    <div class="page-head">
+                        <div>
+                            <h1 id="t-docs">Documentos</h1>
+                            <p>Envie, substitua e organize os arquivos de cada empresa.</p>
+                        </div>
+                        <button type="button" class="btn btn-primary" data-new-document>
+                            <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-upload"/></svg>Enviar documento
+                        </button>
+                    </div>
+                    <div class="card panel" style="margin-top:var(--space-5)">
+                        <div class="toolbar">
+                            <div class="toolbar-search input-icon">
+                                <svg aria-hidden="true"><use href="../assets/img/icons.svg#i-search"/></svg>
+                                <input class="input" type="search" placeholder="Título, arquivo ou empresa" aria-label="Pesquisar documentos" data-doc-search>
+                            </div>
+                            <select class="select" aria-label="Empresa" data-doc-filter="company"></select>
+                            <select class="select" aria-label="Categoria" data-doc-filter="category"></select>
+                            <select class="select" aria-label="Tipo de arquivo" data-doc-filter="type">
+                                <option value="">Todos os tipos</option>
+                                <option value="pdf">PDF</option>
+                                <option value="sheet">Planilhas</option>
+                                <option value="doc">Documentos de texto</option>
+                                <option value="img">Imagens</option>
+                                <option value="zip">Compactados</option>
+                            </select>
+                            <select class="select" aria-label="Ordenar" data-doc-filter="sort">
+                                <option value="recent">Mais recentes</option>
+                                <option value="oldest">Mais antigos</option>
+                                <option value="name">Nome (A–Z)</option>
+                                <option value="company">Empresa (A–Z)</option>
+                            </select>
+                        </div>
+                        <div class="toolbar-meta"><span data-doc-count aria-live="polite"></span></div>
+                        <div data-doc-table></div>
+                    </div>
+                </section>
+
+                <!-- Clientes -->
+                <section class="admin-section" data-section="clientes" aria-labelledby="t-clientes" hidden>
+                    <div class="page-head">
+                        <div>
+                            <h1 id="t-clientes">Clientes</h1>
+                            <p>Convide clientes, vincule empresas e controle o acesso ao portal.</p>
+                        </div>
+                        <button type="button" class="btn btn-primary" data-new-client>
+                            <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-plus"/></svg>Novo cliente
+                        </button>
+                    </div>
+                    <div class="card panel" style="margin-top:var(--space-5)">
+                        <div class="toolbar" style="grid-template-columns: minmax(200px, 2fr) repeat(2, minmax(140px, 1fr))">
+                            <div class="toolbar-search input-icon">
+                                <svg aria-hidden="true"><use href="../assets/img/icons.svg#i-search"/></svg>
+                                <input class="input" type="search" placeholder="Nome, e-mail ou empresa" aria-label="Pesquisar clientes" data-client-search>
+                            </div>
+                            <select class="select" aria-label="Perfil" data-client-filter="role">
+                                <option value="">Todos os perfis</option>
+                                <option value="client">Clientes</option>
+                                <option value="admin">Administradores</option>
+                            </select>
+                            <select class="select" aria-label="Situação" data-client-filter="status">
+                                <option value="">Todas as situações</option>
+                                <option value="active">Ativos</option>
+                                <option value="inactive">Desativados</option>
+                            </select>
+                        </div>
+                        <div data-client-table></div>
+                    </div>
+                </section>
+
+                <!-- Empresas -->
+                <section class="admin-section" data-section="empresas" aria-labelledby="t-empresas" hidden>
+                    <div class="page-head">
+                        <div>
+                            <h1 id="t-empresas">Empresas</h1>
+                            <p>Cada documento pertence a uma empresa. Clientes vinculados a ela poderão vê-lo.</p>
+                        </div>
+                        <button type="button" class="btn btn-primary" data-new-company>
+                            <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-plus"/></svg>Nova empresa
+                        </button>
+                    </div>
+                    <div class="card panel" style="margin-top:var(--space-5)">
+                        <div class="toolbar" style="grid-template-columns: minmax(200px, 1fr)">
+                            <div class="toolbar-search input-icon">
+                                <svg aria-hidden="true"><use href="../assets/img/icons.svg#i-search"/></svg>
+                                <input class="input" type="search" placeholder="Nome ou CNPJ" aria-label="Pesquisar empresas" data-company-search>
+                            </div>
+                        </div>
+                        <div data-company-table></div>
+                    </div>
+                </section>
+
+                <!-- Categorias -->
+                <section class="admin-section" data-section="categorias" aria-labelledby="t-categorias" hidden>
+                    <div class="page-head">
+                        <div>
+                            <h1 id="t-categorias">Categorias</h1>
+                            <p>Organize os documentos de acordo com os serviços prestados.</p>
+                        </div>
+                        <button type="button" class="btn btn-primary" data-new-category>
+                            <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-plus"/></svg>Nova categoria
+                        </button>
+                    </div>
+                    <div class="card panel" style="margin-top:var(--space-5)" data-category-table></div>
+                </section>
+
+                <!-- Registros -->
+                <section class="admin-section" data-section="registros" aria-labelledby="t-registros" hidden>
+                    <div class="page-head">
+                        <div>
+                            <h1 id="t-registros">Registros</h1>
+                            <p>Histórico das operações administrativas (últimos 300 registros).</p>
+                        </div>
+                        <select class="select" style="width:auto" aria-label="Filtrar por tipo" data-audit-filter>
+                            <option value="">Todas as operações</option>
+                            <option value="documents">Documentos</option>
+                            <option value="users">Convites e acessos</option>
+                            <option value="profiles">Perfis</option>
+                            <option value="companies">Empresas</option>
+                            <option value="company_members">Vínculos</option>
+                            <option value="categories">Categorias</option>
+                        </select>
+                    </div>
+                    <div class="card panel" style="margin-top:var(--space-5)" data-audit-table></div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <!-- ===== Modal: documento ===== -->
+    <dialog class="modal" id="modal-document" aria-labelledby="doc-modal-title">
+        <form class="modal-body" data-document-form novalidate>
+            <button type="button" class="modal-close" data-close aria-label="Fechar"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-x"/></svg></button>
+            <div class="modal-head">
+                <span class="icon-box"><svg aria-hidden="true"><use href="../assets/img/icons.svg#i-upload"/></svg></span>
+                <div><h2 id="doc-modal-title">Enviar documento</h2><p data-doc-modal-sub>O arquivo ficará disponível somente para a empresa escolhida.</p></div>
+            </div>
+            <div data-form-message></div>
+            <div class="field">
+                <label class="label" for="doc-company">Empresa destinatária</label>
+                <select class="select" id="doc-company" name="company_id" required></select>
+            </div>
+            <div class="recipient" data-recipient hidden></div>
+            <div class="field-row">
+                <div class="field">
+                    <label class="label" for="doc-category">Categoria</label>
+                    <select class="select" id="doc-category" name="category_id"></select>
+                </div>
+                <div class="field">
+                    <label class="label" for="doc-ref-date">Mês de referência <span class="opcional">(opcional)</span></label>
+                    <input class="input" type="month" id="doc-ref-date" name="reference_month">
+                </div>
+            </div>
+            <div class="field">
+                <label class="label" for="doc-title">Título</label>
+                <input class="input" id="doc-title" name="title" maxlength="140" placeholder="Ex.: Balancete de setembro" required>
+            </div>
+            <div class="field">
+                <label class="label" for="doc-ref-label">Período de referência <span class="opcional">(opcional; preenchido pelo mês se vazio)</span></label>
+                <input class="input" id="doc-ref-label" name="reference_label" maxlength="60" placeholder="Ex.: Setembro/2026, 3º trimestre/2026, Exercício 2025">
+            </div>
+            <div class="field">
+                <label class="label" for="doc-description">Descrição <span class="opcional">(opcional)</span></label>
+                <textarea class="textarea" id="doc-description" name="description" maxlength="400" rows="2" placeholder="Informações que ajudam o cliente a identificar o documento"></textarea>
+            </div>
+            <label class="dropzone" data-dropzone>
+                <input type="file" name="file" data-file-input
+                    accept=".pdf,.xlsx,.xls,.csv,.docx,.doc,.zip,.png,.jpg,.jpeg">
+                <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-upload"/></svg>
+                <span><strong>Clique para escolher</strong> ou arraste o arquivo aqui</span>
+                <small data-dropzone-hint>O arquivo original será disponibilizado para download.</small>
+                <small>PDF, Excel, Word, CSV, ZIP ou imagem (PNG/JPG) · até 25 MB</small>
+            </label>
+            <div data-file-picked></div>
+            <div class="progress" data-progress hidden><span></span></div>
+            <div class="modal-actions">
+                <button type="button" class="btn btn-ghost" data-close>Cancelar</button>
+                <button type="submit" class="btn btn-primary" data-submit>Enviar documento</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- ===== Modal: cliente ===== -->
+    <dialog class="modal" id="modal-client" aria-labelledby="client-modal-title">
+        <form class="modal-body" data-client-form novalidate>
+            <button type="button" class="modal-close" data-close aria-label="Fechar"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-x"/></svg></button>
+            <div class="modal-head">
+                <span class="icon-box"><svg aria-hidden="true"><use href="../assets/img/icons.svg#i-user"/></svg></span>
+                <div><h2 id="client-modal-title">Novo cliente</h2><p data-client-modal-sub>O cliente receberá um e-mail para criar a senha de acesso.</p></div>
+            </div>
+            <div data-form-message></div>
+            <div class="field">
+                <label class="label" for="client-name">Nome completo</label>
+                <input class="input" id="client-name" name="full_name" maxlength="120" required autocomplete="off">
+            </div>
+            <div class="field">
+                <label class="label" for="client-email">E-mail</label>
+                <input class="input" id="client-email" name="email" type="email" maxlength="160" required autocomplete="off">
+            </div>
+            <div class="field">
+                <span class="label">Empresas vinculadas</span>
+                <div class="check-grid" data-client-companies></div>
+                <span class="field-hint">O cliente verá somente os documentos das empresas marcadas.</span>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn btn-ghost" data-close>Cancelar</button>
+                <button type="submit" class="btn btn-primary" data-submit>Enviar convite</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- ===== Modal: empresa ===== -->
+    <dialog class="modal" id="modal-company" aria-labelledby="company-modal-title">
+        <form class="modal-body" data-company-form novalidate>
+            <button type="button" class="modal-close" data-close aria-label="Fechar"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-x"/></svg></button>
+            <div class="modal-head">
+                <span class="icon-box"><svg aria-hidden="true"><use href="../assets/img/icons.svg#i-building"/></svg></span>
+                <div><h2 id="company-modal-title">Nova empresa</h2><p>Os documentos são sempre enviados para uma empresa.</p></div>
+            </div>
+            <div data-form-message></div>
+            <div class="field">
+                <label class="label" for="company-name">Razão social ou nome</label>
+                <input class="input" id="company-name" name="name" maxlength="160" required>
+            </div>
+            <div class="field">
+                <label class="label" for="company-cnpj">CNPJ <span class="opcional">(opcional)</span></label>
+                <input class="input" id="company-cnpj" name="cnpj" inputmode="numeric" placeholder="00.000.000/0000-00" maxlength="18">
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn btn-ghost" data-close>Cancelar</button>
+                <button type="submit" class="btn btn-primary" data-submit>Salvar empresa</button>
+            </div>
+        </form>
+    </dialog>
+
+    <!-- ===== Modal: categoria ===== -->
+    <dialog class="modal" id="modal-category" aria-labelledby="category-modal-title">
+        <form class="modal-body" data-category-form novalidate>
+            <button type="button" class="modal-close" data-close aria-label="Fechar"><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-x"/></svg></button>
+            <div class="modal-head">
+                <span class="icon-box"><svg aria-hidden="true"><use href="../assets/img/icons.svg#i-tag"/></svg></span>
+                <div><h2 id="category-modal-title">Nova categoria</h2><p>As categorias aparecem como filtros para o cliente.</p></div>
+            </div>
+            <div data-form-message></div>
+            <div class="field">
+                <label class="label" for="category-name">Nome</label>
+                <input class="input" id="category-name" name="name" maxlength="80" required>
+            </div>
+            <div class="field">
+                <label class="label" for="category-description">Descrição <span class="opcional">(opcional)</span></label>
+                <input class="input" id="category-description" name="description" maxlength="200">
+            </div>
+            <div class="field-row">
+                <div class="field">
+                    <label class="label" for="category-order">Ordem de exibição</label>
+                    <input class="input" id="category-order" name="sort_order" type="number" min="0" max="9999" value="100">
+                </div>
+                <div class="field">
+                    <span class="label">Situação</span>
+                    <label class="checkbox"><input type="checkbox" name="active" checked> Visível para os clientes</label>
+                </div>
+            </div>
+            <div class="modal-actions">
+                <button type="button" class="btn btn-ghost" data-close>Cancelar</button>
+                <button type="submit" class="btn btn-primary" data-submit>Salvar categoria</button>
+            </div>
+        </form>
+    </dialog>
+
+    <div class="toasts" aria-live="polite" data-toasts></div>
+    <script type="module" src="js/admin.js"></script>
+</body>
+
+</html>

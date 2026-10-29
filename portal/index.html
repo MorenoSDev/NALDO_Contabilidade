@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meus documentos | NRJ Contabilidade Consultiva</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/portal.css">
+    <link rel="icon" href="../assets/img/favicon/favicon.ico" type="image/x-icon">
+    <script type="importmap">
+        { "imports": { "@supabase/supabase-js": "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/+esm" } }
+    </script>
+</head>
+
+<body class="portal">
+    <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+    <div class="page-loading" data-boot>
+        <div><span class="spinner"></span>Carregando sua área...</div>
+    </div>
+
+    <div class="app" data-app hidden>
+        <aside class="sidebar" id="sidebar" data-sidebar aria-label="Navegação do portal">
+            <div class="sidebar-brand">
+                <a href="index.html" class="brand" aria-label="NRJ Contabilidade — Área do cliente"><img src="../assets/img/marca/simbolo-nrj.webp" alt="" width="722" height="343"><span class="brand-text">Contabilidade<br>Consultiva</span></a>
+                <button type="button" class="icon-btn sidebar-close" data-sidebar-close aria-label="Fechar menu">
+                    <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-x"/></svg>
+                </button>
+            </div>
+
+            <nav class="side-nav" aria-label="Seções">
+                <a href="#inicio" class="side-link is-active" data-side-section>
+                    <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-home"/></svg>Visão geral
+                </a>
+                <a href="#documentos" class="side-link" data-side-section>
+                    <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-files"/></svg>Documentos
+                </a>
+            </nav>
+
+            <div>
+                <p class="side-label">Categorias</p>
+                <nav class="side-nav" aria-label="Categorias" data-side-categories></nav>
+            </div>
+
+            <div class="sidebar-foot">
+                <div class="user-chip" data-user-chip>
+                    <span class="avatar-sm" data-user-initials></span>
+                    <div><strong data-user-name></strong><small data-user-email></small></div>
+                </div>
+                <button type="button" class="side-link" data-logout>
+                    <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-logout"/></svg>Sair da conta
+                </button>
+                <a href="../index.html" class="side-link">
+                    <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-arrow-left"/></svg>Voltar ao site
+                </a>
+            </div>
+        </aside>
+
+        <div class="app-main">
+            <header class="topbar">
+                <button type="button" class="icon-btn topbar-menu" data-sidebar-open aria-controls="sidebar"
+                    aria-expanded="false" aria-label="Abrir menu">
+                    <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-menu"/></svg>
+                </button>
+                <div class="topbar-search input-icon">
+                    <svg aria-hidden="true"><use href="../assets/img/icons.svg#i-search"/></svg>
+                    <input class="input" type="search" placeholder="Pesquisar documentos" aria-label="Pesquisar documentos" data-search>
+                </div>
+                <div class="topbar-actions">
+                    <button type="button" class="btn btn-ghost btn-sm" data-logout>
+                        <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-logout"/></svg>
+                        <span class="btn-label">Sair</span>
+                    </button>
+                </div>
+            </header>
+
+            <main class="page" id="conteudo">
+                <section class="page-head" id="inicio">
+                    <div>
+                        <h1 data-greeting>Olá!</h1>
+                        <p>Aqui estão os documentos disponibilizados pelo escritório.</p>
+                        <div class="badges" data-company-badges></div>
+                    </div>
+                    <div class="field" data-company-switch hidden>
+                        <label class="label" for="company-filter">Empresa</label>
+                        <select class="select" id="company-filter" data-filter="company"></select>
+                    </div>
+                </section>
+
+                <div data-error></div>
+
+                <section class="kpis" aria-label="Resumo">
+                    <div class="card kpi">
+                        <span class="icon-box"><svg aria-hidden="true"><use href="../assets/img/icons.svg#i-files"/></svg></span>
+                        <div><strong data-kpi="total">—</strong><span>Documentos disponíveis</span></div>
+                    </div>
+                    <div class="card kpi kpi-new">
+                        <span class="icon-box"><svg aria-hidden="true"><use href="../assets/img/icons.svg#i-sparkle"/></svg></span>
+                        <div><strong data-kpi="new">—</strong><span>Novos para você</span></div>
+                    </div>
+                    <div class="card kpi">
+                        <span class="icon-box"><svg aria-hidden="true"><use href="../assets/img/icons.svg#i-calendar"/></svg></span>
+                        <div><strong data-kpi="last">—</strong><span>Última atualização</span></div>
+                    </div>
+                </section>
+
+                <section class="card panel" aria-labelledby="recentes-title">
+                    <div class="panel-head">
+                        <div>
+                            <h2 id="recentes-title">Documentos recentes</h2>
+                            <p>Os últimos arquivos publicados para você.</p>
+                        </div>
+                    </div>
+                    <div class="panel-body" data-recent></div>
+                </section>
+
+                <section class="card panel" id="documentos" aria-labelledby="docs-title">
+                    <div class="panel-head">
+                        <div>
+                            <h2 id="docs-title">Central de documentos</h2>
+                            <p>Pesquise, filtre e baixe os arquivos da sua empresa.</p>
+                        </div>
+                    </div>
+                    <div class="chips" data-chips aria-label="Filtrar por categoria"></div>
+                    <div class="toolbar">
+                        <div class="toolbar-search input-icon">
+                            <svg aria-hidden="true"><use href="../assets/img/icons.svg#i-search"/></svg>
+                            <input class="input" type="search" placeholder="Nome, descrição ou período" aria-label="Pesquisar" data-search>
+                        </div>
+                        <select class="select" aria-label="Categoria" data-filter="category"></select>
+                        <select class="select" aria-label="Período de referência" data-filter="year"></select>
+                        <select class="select" aria-label="Tipo de arquivo" data-filter="type">
+                            <option value="">Todos os tipos</option>
+                            <option value="pdf">PDF</option>
+                            <option value="sheet">Planilhas</option>
+                            <option value="doc">Documentos de texto</option>
+                            <option value="img">Imagens</option>
+                            <option value="zip">Compactados</option>
+                        </select>
+                        <select class="select" aria-label="Ordenar" data-filter="sort">
+                            <option value="recent">Mais recentes</option>
+                            <option value="oldest">Mais antigos</option>
+                            <option value="period">Período de referência</option>
+                            <option value="name">Nome (A–Z)</option>
+                        </select>
+                    </div>
+                    <div class="toolbar-meta">
+                        <span data-result-count aria-live="polite"></span>
+                        <button type="button" class="btn btn-text btn-sm" data-clear-filters hidden>
+                            <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-x"/></svg>Limpar filtros
+                        </button>
+                    </div>
+                    <div data-docs></div>
+                </section>
+            </main>
+        </div>
+    </div>
+
+    <div class="toasts" aria-live="polite" data-toasts></div>
+    <script type="module" src="js/cliente.js"></script>
+</body>
+
+</html>

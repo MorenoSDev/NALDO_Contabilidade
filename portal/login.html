@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Área do cliente | NRJ Contabilidade Consultiva</title>
+    <meta name="robots" content="noindex, nofollow">
+    <meta name="theme-color" content="#022f66">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap">
+    <link rel="stylesheet" href="../assets/css/tokens.css">
+    <link rel="stylesheet" href="../assets/css/base.css">
+    <link rel="stylesheet" href="../assets/css/components.css">
+    <link rel="stylesheet" href="../assets/css/portal.css">
+    <link rel="icon" href="../assets/img/favicon/favicon.ico" type="image/x-icon">
+    <script type="importmap">
+        { "imports": { "@supabase/supabase-js": "https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/+esm" } }
+    </script>
+</head>
+
+<body>
+    <div class="auth">
+        <aside class="auth-aside">
+            <a href="../index.html" class="brand brand-light brand-lg" aria-label="NRJ Contabilidade Consultiva — voltar ao site"><img src="../assets/img/marca/simbolo-nrj-branco.webp" alt="" width="722" height="343"><span class="brand-text">Contabilidade<br>Consultiva</span></a>
+            <div>
+                <h1>Seus documentos contábeis, organizados e seguros.</h1>
+                <p>Acesse balanços, DRE, balancetes e documentos societários da sua empresa a qualquer hora.</p>
+                <ul class="auth-points" role="list">
+                    <li><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-shield"/></svg>Acesso individual com e-mail e senha</li>
+                    <li><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-lock"/></svg>Cada empresa vê somente os próprios arquivos</li>
+                    <li><svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-download"/></svg>Visualize ou baixe o arquivo original</li>
+                </ul>
+            </div>
+            <small>© NRJ Contabilidade Consultiva · <a href="../politica-de-privacidade.html" style="color:inherit">Privacidade</a></small>
+        </aside>
+
+        <main class="auth-main">
+            <div class="auth-card">
+                <a href="../index.html" class="brand brand-lg auth-mobile-brand" aria-label="NRJ Contabilidade Consultiva — voltar ao site"><img src="../assets/img/marca/simbolo-nrj.webp" alt="" width="722" height="343"><span class="brand-text">Contabilidade<br>Consultiva</span></a>
+
+                <!-- Entrar -->
+                <section data-view="login" aria-labelledby="login-title">
+                    <header>
+                        <h2 id="login-title">Entrar na área do cliente</h2>
+                        <p>Use o e-mail cadastrado pelo escritório.</p>
+                    </header>
+                    <div data-message></div>
+                    <form class="auth-form" data-login-form novalidate>
+                        <div class="field">
+                            <label class="label" for="login-email">E-mail</label>
+                            <div class="input-icon">
+                                <svg aria-hidden="true"><use href="../assets/img/icons.svg#i-mail"/></svg>
+                                <input class="input" id="login-email" name="email" type="email" autocomplete="username"
+                                    placeholder="voce@empresa.com.br" required>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="label" for="login-password">Senha</label>
+                            <div class="input-group">
+                                <input class="input" id="login-password" name="password" type="password"
+                                    autocomplete="current-password" placeholder="Sua senha" required>
+                                <button type="button" class="input-action" data-toggle-password aria-controls="login-password"
+                                    aria-label="Mostrar senha" aria-pressed="false">
+                                    <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-eye"/></svg>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="auth-row">
+                            <span></span>
+                            <button type="button" class="link-button" data-go="recover">Esqueci minha senha</button>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Entrar</button>
+                    </form>
+                </section>
+
+                <!-- Recuperar senha -->
+                <section data-view="recover" hidden aria-labelledby="recover-title">
+                    <header>
+                        <h2 id="recover-title">Recuperar senha</h2>
+                        <p>Informe seu e-mail. Se ele estiver cadastrado, enviaremos um link para criar uma nova senha.</p>
+                    </header>
+                    <div data-message></div>
+                    <form class="auth-form" data-recover-form novalidate>
+                        <div class="field">
+                            <label class="label" for="recover-email">E-mail</label>
+                            <div class="input-icon">
+                                <svg aria-hidden="true"><use href="../assets/img/icons.svg#i-mail"/></svg>
+                                <input class="input" id="recover-email" name="email" type="email" autocomplete="email"
+                                    placeholder="voce@empresa.com.br" required>
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-lg btn-block">Enviar link</button>
+                        <button type="button" class="btn btn-text" data-go="login">
+                            <svg class="icon" aria-hidden="true"><use href="../assets/img/icons.svg#i-arrow-left"/></svg>
+                            Voltar para o login
+                        </button>
+                    </form>
+                </section>
+
+                <div class="auth-footer">
+                    <a href="../index.html">← Voltar ao site</a>
+                    <a href="../politica-de-privacidade.html">Privacidade</a>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script type="module" src="js/login.js"></script>
+</body>
+
+</html>
