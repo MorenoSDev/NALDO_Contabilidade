@@ -6,7 +6,7 @@
 // apenas o token do administrador logado, que é conferido aqui.
 //
 // Deploy:  supabase functions deploy admin-users
-// Variável obrigatória: SITE_URL (ex.: https://morenosdev.github.io/NALDO_Contabilidade)
+// Variável opcional: SITE_URL (padrão: https://morenosdev.github.io/NALDO_Contabilidade)
 
 import { createClient } from 'https://esm.sh/@supabase/supabase-js@2.45.4';
 
@@ -32,7 +32,7 @@ Deno.serve(async (req) => {
 
     const url = Deno.env.get('SUPABASE_URL')!;
     const serviceKey = Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!;
-    const siteUrl = (Deno.env.get('SITE_URL') ?? '').replace(/\/$/, '');
+    const siteUrl = (Deno.env.get('SITE_URL') || 'https://morenosdev.github.io/NALDO_Contabilidade').replace(/\/$/, '');
 
     const token = (req.headers.get('Authorization') ?? '').replace(/^Bearer\s+/i, '');
     if (!token) return json({ error: 'Sessão não encontrada.' }, 401);

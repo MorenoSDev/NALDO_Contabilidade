@@ -284,6 +284,18 @@ begin
     end loop;
 end $$;
 
+-- O Supabase concede EXECUTE a anon/authenticated por padrão: as funções de
+-- gatilho não devem ser chamáveis pela API, e visitantes não usam nenhuma.
+revoke execute on function public.is_admin() from anon;
+revoke execute on function public.is_member(uuid) from anon;
+revoke execute on function public.can_read_document_path(text) from anon;
+revoke execute on function public.audit_changes() from public, anon, authenticated;
+revoke execute on function public.handle_new_user() from public, anon, authenticated;
+revoke execute on function public.touch_updated_at() from public, anon, authenticated;
+revoke execute on function public.guard_profile_update() from public, anon, authenticated;
+revoke execute on function public.guard_document_update() from public, anon, authenticated;
+revoke execute on function public.set_uploaded_by() from public, anon, authenticated;
+
 -- ---------------------------------------------------------------------
 -- Row Level Security
 -- ---------------------------------------------------------------------
