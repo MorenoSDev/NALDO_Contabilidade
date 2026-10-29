@@ -30,6 +30,14 @@
     <link rel="apple-touch-icon" href="assets/img/favicon/apple-touch-icon.png">
     <link rel="manifest" href="assets/img/favicon/site.webmanifest">
 
+    <!-- Links de convite/recuperação de senha do Supabase que caírem na página inicial
+         seguem para a tela de definir senha (com o token, que fica só após o #) -->
+    <script>
+        if (/(^|&)(type=(recovery|invite|signup|magiclink)|error_code=)/.test(location.hash.slice(1))) {
+            location.replace('portal/definir-senha.html' + location.hash);
+        }
+    </script>
+
     <!-- Ativa as animações de entrada; se os scripts não carregarem, o conteúdo volta a aparecer -->
     <script>
         document.documentElement.classList.add('js');
